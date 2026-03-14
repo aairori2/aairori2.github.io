@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research Portfolio — Soil & Environmental Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --soil-dark: #1a1208;
+      --soil-brown: #3b2a14;
+      --soil-mid: #6b4c2a;
+      --sand: #c9a96e;
+      --straw: #e8d5a3;
+      --cream: #f5f0e8;
+      --moss: #4a6741;
+      --sage: #7a9e6f;
+      --sage-light: #b8d4a8;
+      --topo: rgba(122,158,111,0.15);
+      --data-blue: #2d6e8e;
+      --data-blue-light: #5ba3c4;
+      --white: #fdfaf4;
+    }
+
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--soil-dark);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── TOPOGRAPHIC BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(107,76,42,0.06) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(107,76,42,0.04) 60px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: rgba(245,240,232,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(107,76,42,0.12);
+}
+
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--soil-mid);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soil-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--moss); }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 8rem 3rem 4rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-soil-layers {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.soil-layer {
+  flex: 1;
+  position: relative;
+}
+
+.soil-layer:nth-child(1) { background: linear-gradient(135deg, #c9a96e 0%, #b8864a 100%); }
+.soil-layer:nth-child(2) { background: linear-gradient(135deg, #a0714a 0%, #8a5c38 100%); }
+.soil-layer:nth-child(3) { background: linear-gradient(135deg, #7a5230 0%, #5e3e20 100%); }
+.soil-layer:nth-child(4) { background: linear-gradient(135deg, #5a3c1e 0%, #3d2710 100%); }
+.soil-layer:nth-child(5) { background: linear-gradient(135deg, #3b2814 0%, #261808 100%); }
+
+.soil-layer::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-divider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 52%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--sand), transparent);
+  transform: skewX(-3deg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-right: 4rem;
+  animation: fadeUp 1s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease 0.1s both;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--moss);
+}
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--soil-brown);
+  margin-bottom: 0.3rem;
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.hero-name-accent {
+  font-style: italic;
+  color: var(--moss);
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--soil-mid);
+  margin: 1.5rem 0 2.5rem;
+  line-height: 1.7;
+  max-width: 440px;
+  animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  animation: fadeUp 1s ease 0.4s both;
+}
+
+.pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.pill-earth  { border-color: var(--sand); color: var(--soil-mid); background: rgba(201,169,110,0.1); }
+.pill-moss   { border-color: var(--sage); color: var(--moss); background: rgba(122,158,111,0.1); }
+.pill-data   { border-color: var(--data-blue-light); color: var(--data-blue); background: rgba(45,110,142,0.08); }
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.btn-primary {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  background: var(--moss);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: var(--soil-brown); transform: translateY(-2px); }
+
+.btn-outline {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--soil-mid);
+  border: 1px solid var(--sand);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover { border-color: var(--moss); color: var(--moss); transform: translateY(-2px); }
+
+/* ── SECTIONS ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 3rem;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--sage);
+}
+
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 600;
+  color: var(--soil-brown);
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--soil-brown);
+  padding: 3rem;
+  z-index: 1;
+}
+
+.stats-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  border-right: 1px solid rgba(201,169,110,0.2);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--sand);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.6);
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--soil-mid);
+  margin-bottom: 1.2rem;
+}
+
+.about-text p strong {
+  color: var(--soil-brown);
+  font-weight: 600;
+}
+
+.skills-panel {
+  background: var(--white);
+  border: 1px solid rgba(107,76,42,0.1);
+  padding: 2rem;
+  box-shadow: 4px 4px 0 rgba(107,76,42,0.06);
+}
+
+.skills-panel h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1.5rem;
+}
+
+.skill-item {
+  margin-bottom: 1.2rem;
+}
+
+.skill-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.skill-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--soil-brown);
+  letter-spacing: 0.05em;
+}
+
+.skill-pct {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--sage);
+}
+
+.skill-bar {
+  height: 3px;
+  background: rgba(107,76,42,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--moss), var(--sage-light));
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── PROJECTS ── */
+.projects-section { background: var(--white); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid rgba(107,76,42,0.1);
+  background: var(--cream);
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.project-card.earth::before  { background: linear-gradient(90deg, var(--sand), var(--soil-mid)); }
+.project-card.geo::before    { background: linear-gradient(90deg, var(--data-blue), var(--data-blue-light)); }
+.project-card.ml::before     { background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
+.project-card.drought::before { background: linear-gradient(90deg, #c9a96e, #e8d5a3); }
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(59,42,20,0.12);
+}
+
+.project-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--soil-brown);
+  margin-bottom: 0.8rem;
+  line-height: 1.35;
+}
+
+.project-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--soil-mid);
+  margin-bottom: 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background: rgba(107,76,42,0.07);
+  color: var(--soil-mid);
+  border-radius: 1px;
+}
+
+.project-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.2s;
+}
+
+.project-link:hover { gap: 0.8rem; }
+.project-link::after { content: '→'; }
+
+/* ── RESEARCH / TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--sand), rgba(201,169,110,0.1));
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.3rem;
+  width: 10px; height: 10px;
+  background: var(--sand);
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--sand);
+}
+
+.timeline-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--soil-brown);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--soil-mid);
+}
+
+/* ── GITHUB / TOOLS ── */
+.tools-section { background: var(--soil-dark); }
+
+.tools-section .section-label { color: rgba(201,169,110,0.5); }
+.tools-section .section-label::after { background: rgba(201,169,110,0.3); }
+.tools-section h2 { color: var(--straw); }
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.08);
+  margin-bottom: 3rem;
+}
+
+.tool-item {
+  padding: 1.8rem 1.5rem;
+  background: var(--soil-dark);
+  transition: background 0.2s;
+}
+
+.tool-item:hover { background: rgba(201,169,110,0.04); }
+
+.tool-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.tool-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--sand);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.tool-desc {
+  font-size: 0.8rem;
+  color: rgba(201,169,110,0.45);
+  line-height: 1.5;
+}
+
+.github-cta {
+  text-align: center;
+  padding: 3rem;
+  border: 1px solid rgba(201,169,110,0.15);
+  background: rgba(201,169,110,0.03);
+}
+
+.github-cta p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(201,169,110,0.5);
+  margin-bottom: 1.5rem;
+}
+
+.github-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--sage-light);
+  letter-spacing: 0.05em;
+}
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--soil-mid);
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.9rem;
+  color: var(--soil-brown);
+  background: var(--white);
+  border: 1px solid rgba(107,76,42,0.15);
+  padding: 0.8rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--moss);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--soil-brown);
+  padding: 2.5rem 3rem;
+  z-index: 1;
+  position: relative;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--straw);
+}
+
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: rgba(232,213,163,0.4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232,213,163,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--sand); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+  .hero-soil-layers { display: none; }
+  .hero-divider { display: none; }
+  .hero-content { padding-right: 0; }
+  section { padding: 4rem 1.5rem; }
+  .stats-bar { padding: 2rem 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-logo">J. Researcher · Soil & Env. Science</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Research Technologist · Land Grant University</div>
+    <h1>Grounded in<br><span class="hero-name-accent">Data,</span><br>Rooted in Soil.</h1>
+    <p class="hero-subtitle">
+      Soil &amp; environmental scientist specializing in remote sensing, machine learning,
+      and spatial analysis — translating field data into insight for research and land management.
+    </p>
+    <div class="hero-pills">
+      <span class="pill pill-earth">Soil Science</span>
+      <span class="pill pill-data">Remote Sensing</span>
+      <span class="pill pill-moss">Python · ML</span>
+      <span class="pill pill-earth">GIS · GISP (Pursuing)</span>
+      <span class="pill pill-moss">Lab Operations</span>
+      <span class="pill pill-data">Scientific Writing</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-soil-layers" aria-hidden="true">
+    <div class="soil-layer" data-label="O Horizon"></div>
+    <div class="soil-layer" data-label="A Horizon"></div>
+    <div class="soil-layer" data-label="B Horizon"></div>
+    <div class="soil-layer" data-label="C Horizon"></div>
+    <div class="soil-layer" data-label="Bedrock"></div>
+  </div>
+  <div class="hero-divider" aria-hidden="true"></div>
+</section>
+
+<!-- STATS -->
+
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <span class="stat-number">20+</span>
+      <span class="stat-label">Students &amp; Staff Trained</span>
+    </div>
+    <div class="stat reveal reveal-delay-1">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Instruments Maintained</span>
+    </div>
+    <div class="stat reveal reveal-delay-2">
+      <span class="stat-number">2</span>
+      <span class="stat-label">Major Research Projects</span>
+    </div>
+    <div class="stat reveal reveal-delay-3">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Years Research Experience</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Me</div>
+    <h2>Scientist,<br><em>Collaborator,</em> Builder.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I am a <strong>Research Technologist</strong> in soil and environmental science at a land grant university, 
+          with an M.S. degree and three years of hands-on experience bridging field research, 
+          laboratory operations, and emerging computational methods.
+        </p>
+        <p>
+          My work sits at the intersection of <strong>soil science and data science</strong> — I apply Python, 
+          remote sensing imagery, and machine learning to understand land conditions, drought patterns, 
+          and environmental change at scale. I contributed to a peer-reviewed paper on drought patterns 
+          and have supported two major multi-state research initiatives.
+        </p>
+        <p>
+          Beyond the bench, I actively serve my university community as 
+          <strong>Co-Chair (incoming Chair) of the Staff Advisory Committee</strong>, 
+          have onboarded early-career researchers, managed lab budgets, and led outreach events. 
+          I believe rigorous science is built on strong teams, open workflows, and shared knowledge.
+        </p>
+        <p>
+          I'm currently pursuing <strong>GISP certification</strong>, OSHA 40-Hour HAZPOWER training, 
+          and growing a public GitHub portfolio to share tools and reproducible workflows with the 
+          broader research community.
+        </p>
+      </div>
+      <div class="skills-panel reveal reveal-delay-2">
+        <h3>Technical Proficiency</h3>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Python (Data Science)</span>
+            <span class="skill-pct">72%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Remote Sensing / GIS</span>
+            <span class="skill-pct">68%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Machine Learning Modeling</span>
+            <span class="skill-pct">60%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Lab Instrumentation</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Scientific Writing</span>
+            <span class="skill-pct">70%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top">
+            <span class="skill-name">Research Project Management</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="projects-section">
+  <div class="section-inner">
+    <div class="section-label">Featured Work</div>
+    <h2>Projects &amp; <em>Contributions</em></h2>
+    <div class="projects-grid">
+
+```
+  <div class="project-card drought reveal">
+    <div class="project-type">Research · Publication</div>
+    <h3>Drought Pattern Analysis</h3>
+    <p>Contributed to a research paper investigating regional drought patterns using satellite-derived indices
+       and soil moisture time-series data. Handled data processing pipelines and figure preparation.</p>
+    <div class="project-tags">
+      <span class="tag">Remote Sensing</span>
+      <span class="tag">Python</span>
+      <span class="tag">NDVI</span>
+      <span class="tag">Drought Indices</span>
+    </div>
+    <a href="#" class="project-link">View Publication</a>
+  </div>
+
+  <div class="project-card earth reveal reveal-delay-1">
+    <div class="project-type">Multi-State Research</div>
+    <h3>Barta &amp; Multi-State Projects</h3>
+    <p>Assisted in two concurrent major research initiatives spanning multiple states, supporting
+       field data collection, instrument calibration, sample processing, and data quality control.</p>
+    <div class="project-tags">
+      <span class="tag">Soil Sampling</span>
+      <span class="tag">QA/QC</span>
+      <span class="tag">Field Research</span>
+      <span class="tag">Lab Analysis</span>
+    </div>
+    <a href="#" class="project-link">Read More</a>
+  </div>
+
+  <div class="project-card geo reveal reveal-delay-2">
+    <div class="project-type">Tool Development · GitHub</div>
+    <h3>Remote Sensing Workflows</h3>
+    <p>Building a public GitHub repository of reproducible Python workflows for processing
+       satellite imagery, computing spectral indices, and classifying land cover types.</p>
+    <div class="project-tags">
+      <span class="tag">Python</span>
+      <span class="tag">Google Earth Engine</span>
+      <span class="tag">Rasterio</span>
+      <span class="tag">Open Source</span>
+    </div>
+    <a href="#" class="project-link">View on GitHub</a>
+  </div>
+
+  <div class="project-card ml reveal reveal-delay-1">
+    <div class="project-type">Machine Learning</div>
+    <h3>Soil Property Prediction</h3>
+    <p>Exploring ML models (Random Forest, XGBoost) to predict soil organic carbon and
+       texture class from hyperspectral and multispectral remote sensing covariates.</p>
+    <div class="project-tags">
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">XGBoost</span>
+      <span class="tag">Spectral Data</span>
+      <span class="tag">Cross-Validation</span>
+    </div>
+    <a href="#" class="project-link">View Notebook</a>
+  </div>
+
+  <div class="project-card earth reveal reveal-delay-2">
+    <div class="project-type">Lab Operations</div>
+    <h3>Instrument Training &amp; Scheduling</h3>
+    <p>Designed and led training programs for 20+ students and staff on laboratory instruments.
+       Currently implementing an MS 365 online scheduling system to optimize access and reduce bottlenecks.</p>
+    <div class="project-tags">
+      <span class="tag">Lab Management</span>
+      <span class="tag">Microsoft 365</span>
+      <span class="tag">Training</span>
+      <span class="tag">SOP Development</span>
+    </div>
+    <a href="#" class="project-link">Learn More</a>
+  </div>
+
+  <div class="project-card geo reveal reveal-delay-3">
+    <div class="project-type">Service · Leadership</div>
+    <h3>Staff Advisory Committee</h3>
+    <p>Elected Co-Chair of the university Staff Advisory Committee, transitioning to Chair.
+       Represent staff interests, facilitate communication between staff and administration.</p>
+    <div class="project-tags">
+      <span class="tag">University Service</span>
+      <span class="tag">Leadership</span>
+      <span class="tag">Advocacy</span>
+    </div>
+    <a href="#" class="project-link">Read More</a>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- RESEARCH TIMELINE -->
+
+<section id="research">
+  <div class="section-inner">
+    <div class="section-label">Trajectory</div>
+    <h2>Research &amp; <em>Professional Journey</em></h2>
+    <div class="timeline">
+
+```
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">Fall 2025 – Present</div>
+    <h3>Staff Advisory Committee Chair</h3>
+    <p>Transitioning from Co-Chair to Chair; leading staff governance and representing colleagues
+       at institutional level while continuing core research responsibilities.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">2024 – Present</div>
+    <h3>Drought Research Paper — Co-Author</h3>
+    <p>Contributed data analysis, remote sensing processing, and writing to a peer-reviewed study
+       on drought patterns. Developed reusable Python data pipelines for the project.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">2023 – Present</div>
+    <h3>Research Technologist, Soil &amp; Environmental Science</h3>
+    <p>Supporting multi-state research projects (Barta, Multi-State), maintaining three instruments,
+       onboarding a postdoctoral researcher, training 20+ students, managing operational budget,
+       and securing the annual Preventative Maintenance contract.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">M.S. Degree</div>
+    <h3>Graduate Training in Soil &amp; Environmental Science</h3>
+    <p>Graduate-level research in soil science, establishing foundational knowledge in field methods,
+       laboratory analysis, and environmental systems — the launchpad for an applied research career.</p>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- TOOLS & GITHUB -->
+
+<section id="tools" class="tools-section">
+  <div class="section-inner">
+    <div class="section-label">Toolkit &amp; Open Source</div>
+    <h2>Tools I Use &amp; <em>Build With</em></h2>
+
+```
+<div class="tools-grid">
+  <div class="tool-item reveal">
+    <div class="tool-icon">🐍</div>
+    <div class="tool-name">Python</div>
+    <div class="tool-desc">NumPy, Pandas, Matplotlib, Scikit-learn, Rasterio, GeoPandas</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-1">
+    <div class="tool-icon">🛰️</div>
+    <div class="tool-name">Remote Sensing</div>
+    <div class="tool-desc">Google Earth Engine, ENVI, Sentinel, Landsat time-series</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-2">
+    <div class="tool-icon">🗺️</div>
+    <div class="tool-name">GIS / Spatial</div>
+    <div class="tool-desc">ArcGIS, QGIS, PostGIS · Pursuing GISP Certification</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-3">
+    <div class="tool-icon">🤖</div>
+    <div class="tool-name">Machine Learning</div>
+    <div class="tool-desc">Random Forest, XGBoost, cross-validation, feature importance</div>
+  </div>
+  <div class="tool-item reveal">
+    <div class="tool-icon">🔬</div>
+    <div class="tool-name">Lab Instruments</div>
+    <div class="tool-desc">Spectrophotometers, soil analyzers, sample prep — SOP authoring</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-1">
+    <div class="tool-icon">📊</div>
+    <div class="tool-name">Data Viz</div>
+    <div class="tool-desc">Matplotlib, Seaborn, Plotly, R ggplot2 for publication-ready figures</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-2">
+    <div class="tool-icon">🐙</div>
+    <div class="tool-name">GitHub</div>
+    <div class="tool-desc">Building open-source workflows for soil &amp; remote sensing analyses</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-3">
+    <div class="tool-icon">☁️</div>
+    <div class="tool-name">Microsoft 365</div>
+    <div class="tool-desc">SharePoint scheduling, Teams, Power Automate for lab operations</div>
+  </div>
+</div>
+
+<div class="github-cta reveal">
+  <p>Find my open-source code and reproducible research notebooks at</p>
+  <div class="github-url">github.com/your-username</div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2>Collaborate or <em>Connect</em></h2>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>
+          I'm open to research collaborations, consulting on soil &amp; remote sensing workflows,
+          speaking at outreach events, or simply connecting with other scientists and practitioners
+          working at the intersection of land, data, and environment.
+        </p>
+        <p>
+          Whether you're a faculty member exploring a new project, an industry partner looking for
+          soil &amp; GIS expertise, or a student seeking guidance — feel free to reach out.
+        </p>
+        <div class="hero-pills" style="margin-top:0">
+          <span class="pill pill-moss">Research Collaboration</span>
+          <span class="pill pill-data">GIS Consulting</span>
+          <span class="pill pill-earth">Outreach / Speaking</span>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Dr. Jane Smith" />
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="jsmith@university.edu" />
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Tell me about your project or question…"></textarea>
+        </div>
+        <button class="btn-primary" style="align-self:flex-start" onclick="alert('Form submission would connect to your email backend.')">
+          Send Message
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Grounded in Data.</div>
+    <div class="footer-links">
+      <a href="#">GitHub</a>
+      <a href="#">ORCID</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">ResearchGate</a>
+    </div>
+    <div class="footer-copy">© 2025 · Soil &amp; Environmental Science</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id], .stats-bar');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id || '';
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--moss)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
