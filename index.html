@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Research Portfolio — Soil & Environmental Science</title>
+  <title>Aldi J. Airori — Soil & Environmental Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
       --moss: #4a6741;
       --sage: #7a9e6f;
       --sage-light: #b8d4a8;
-      --topo: rgba(122,158,111,0.15);
       --data-blue: #2d6e8e;
       --data-blue-light: #5ba3c4;
       --white: #fdfaf4;
@@ -27,7 +26,6 @@
 
 ```
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -38,24 +36,13 @@ body {
   overflow-x: hidden;
 }
 
-/* ── TOPOGRAPHIC BACKGROUND ── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 59px,
-      rgba(107,76,42,0.06) 60px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 59px,
-      rgba(107,76,42,0.04) 60px
-    );
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(107,76,42,0.06) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(107,76,42,0.04) 60px);
   pointer-events: none;
   z-index: 0;
 }
@@ -69,7 +56,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 3rem;
-  background: rgba(245,240,232,0.85);
+  background: rgba(245,240,232,0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(107,76,42,0.12);
 }
@@ -83,11 +70,7 @@ nav {
   text-transform: uppercase;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
 .nav-links a {
   font-family: 'DM Mono', monospace;
@@ -99,7 +82,6 @@ nav {
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .nav-links a:hover { color: var(--moss); }
 
 /* ── HERO ── */
@@ -123,11 +105,7 @@ nav {
   overflow: hidden;
 }
 
-.soil-layer {
-  flex: 1;
-  position: relative;
-}
-
+.soil-layer { flex: 1; position: relative; }
 .soil-layer:nth-child(1) { background: linear-gradient(135deg, #c9a96e 0%, #b8864a 100%); }
 .soil-layer:nth-child(2) { background: linear-gradient(135deg, #a0714a 0%, #8a5c38 100%); }
 .soil-layer:nth-child(3) { background: linear-gradient(135deg, #7a5230 0%, #5e3e20 100%); }
@@ -137,8 +115,7 @@ nav {
 .soil-layer::after {
   content: attr(data-label);
   position: absolute;
-  right: 2rem;
-  top: 50%;
+  right: 2rem; top: 50%;
   transform: translateY(-50%);
   font-family: 'DM Mono', monospace;
   font-size: 0.6rem;
@@ -149,8 +126,7 @@ nav {
 
 .hero-divider {
   position: absolute;
-  top: 0; bottom: 0;
-  left: 52%;
+  top: 0; bottom: 0; left: 52%;
   width: 1px;
   background: linear-gradient(to bottom, transparent, var(--sand), transparent);
   transform: skewX(-3deg);
@@ -180,7 +156,6 @@ nav {
   margin-bottom: 1.5rem;
   animation: fadeUp 1s ease 0.1s both;
 }
-
 .hero-tag::before {
   content: '';
   display: block;
@@ -198,10 +173,7 @@ h1 {
   animation: fadeUp 1s ease 0.2s both;
 }
 
-.hero-name-accent {
-  font-style: italic;
-  color: var(--moss);
-}
+.hero-name-accent { font-style: italic; color: var(--moss); }
 
 .hero-subtitle {
   font-size: 1rem;
@@ -230,7 +202,6 @@ h1 {
   border-radius: 2px;
   border: 1px solid;
 }
-
 .pill-earth  { border-color: var(--sand); color: var(--soil-mid); background: rgba(201,169,110,0.1); }
 .pill-moss   { border-color: var(--sage); color: var(--moss); background: rgba(122,158,111,0.1); }
 .pill-data   { border-color: var(--data-blue-light); color: var(--data-blue); background: rgba(45,110,142,0.08); }
@@ -255,7 +226,6 @@ h1 {
   transition: background 0.2s, transform 0.2s;
   display: inline-block;
 }
-
 .btn-primary:hover { background: var(--soil-brown); transform: translateY(-2px); }
 
 .btn-outline {
@@ -272,7 +242,6 @@ h1 {
   transition: border-color 0.2s, color 0.2s, transform 0.2s;
   display: inline-block;
 }
-
 .btn-outline:hover { border-color: var(--moss); color: var(--moss); transform: translateY(-2px); }
 
 /* ── SECTIONS ── */
@@ -282,10 +251,7 @@ section {
   padding: 6rem 3rem;
 }
 
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
+.section-inner { max-width: 1100px; margin: 0 auto; }
 
 .section-label {
   font-family: 'DM Mono', monospace;
@@ -298,7 +264,6 @@ section {
   align-items: center;
   gap: 0.8rem;
 }
-
 .section-label::after {
   content: '';
   display: block;
@@ -317,12 +282,8 @@ h2 {
   margin-bottom: 3rem;
 }
 
-/* ── STATS BAR ── */
-.stats-bar {
-  background: var(--soil-brown);
-  padding: 3rem;
-  z-index: 1;
-}
+/* ── STATS ── */
+.stats-bar { background: var(--soil-brown); padding: 3rem; z-index: 1; }
 
 .stats-grid {
   max-width: 1100px;
@@ -337,7 +298,6 @@ h2 {
   padding: 1.5rem;
   border-right: 1px solid rgba(201,169,110,0.2);
 }
-
 .stat:last-child { border-right: none; }
 
 .stat-number {
@@ -372,11 +332,27 @@ h2 {
   color: var(--soil-mid);
   margin-bottom: 1.2rem;
 }
+.about-text p strong { color: var(--soil-brown); font-weight: 600; }
 
-.about-text p strong {
-  color: var(--soil-brown);
-  font-weight: 600;
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(107,76,42,0.1);
 }
+
+.contact-line {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--soil-mid);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.contact-line span { color: var(--sage); font-size: 0.8rem; }
 
 .skills-panel {
   background: var(--white);
@@ -394,9 +370,7 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.skill-item {
-  margin-bottom: 1.2rem;
-}
+.skill-item { margin-bottom: 1.2rem; }
 
 .skill-top {
   display: flex;
@@ -417,18 +391,34 @@ h2 {
   color: var(--sage);
 }
 
-.skill-bar {
-  height: 3px;
-  background: rgba(107,76,42,0.1);
-  position: relative;
-  overflow: hidden;
-}
+.skill-bar { height: 3px; background: rgba(107,76,42,0.1); position: relative; overflow: hidden; }
 
 .skill-fill {
   position: absolute;
   left: 0; top: 0; bottom: 0;
   background: linear-gradient(90deg, var(--moss), var(--sage-light));
   transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+.lang-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(107,76,42,0.08);
+}
+
+.lang-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--sage);
+  color: var(--moss);
+  background: rgba(122,158,111,0.07);
+  border-radius: 1px;
 }
 
 /* ── PROJECTS ── */
@@ -447,7 +437,6 @@ h2 {
   position: relative;
   transition: transform 0.25s, box-shadow 0.25s;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .project-card::before {
@@ -460,7 +449,7 @@ h2 {
 .project-card.earth::before  { background: linear-gradient(90deg, var(--sand), var(--soil-mid)); }
 .project-card.geo::before    { background: linear-gradient(90deg, var(--data-blue), var(--data-blue-light)); }
 .project-card.ml::before     { background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
-.project-card.drought::before { background: linear-gradient(90deg, #c9a96e, #e8d5a3); }
+.project-card.policy::before { background: linear-gradient(90deg, #8e6b2d, #c9a96e); }
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -522,15 +511,11 @@ h2 {
   gap: 0.4rem;
   transition: gap 0.2s;
 }
-
 .project-link:hover { gap: 0.8rem; }
 .project-link::after { content: '→'; }
 
-/* ── RESEARCH / TIMELINE ── */
-.timeline {
-  position: relative;
-  padding-left: 2rem;
-}
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 2rem; }
 
 .timeline::before {
   content: '';
@@ -545,7 +530,6 @@ h2 {
   padding-left: 2.5rem;
   padding-bottom: 3rem;
 }
-
 .timeline-item:last-child { padding-bottom: 0; }
 
 .timeline-dot {
@@ -572,7 +556,16 @@ h2 {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.15rem;
   color: var(--soil-brown);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-org {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.6rem;
 }
 
 .timeline-item p {
@@ -581,9 +574,8 @@ h2 {
   color: var(--soil-mid);
 }
 
-/* ── GITHUB / TOOLS ── */
+/* ── TOOLS ── */
 .tools-section { background: var(--soil-dark); }
-
 .tools-section .section-label { color: rgba(201,169,110,0.5); }
 .tools-section .section-label::after { background: rgba(201,169,110,0.3); }
 .tools-section h2 { color: var(--straw); }
@@ -602,13 +594,9 @@ h2 {
   background: var(--soil-dark);
   transition: background 0.2s;
 }
-
 .tool-item:hover { background: rgba(201,169,110,0.04); }
 
-.tool-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-}
+.tool-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
 
 .tool-name {
   font-family: 'DM Mono', monospace;
@@ -662,17 +650,9 @@ h2 {
   margin-bottom: 2rem;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
 
 .form-field label {
   font-family: 'DM Mono', monospace;
@@ -694,11 +674,8 @@ h2 {
   transition: border-color 0.2s;
   resize: vertical;
 }
-
 .form-field input:focus,
-.form-field textarea:focus {
-  border-color: var(--moss);
-}
+.form-field textarea:focus { border-color: var(--moss); }
 
 /* ── FOOTER ── */
 footer {
@@ -730,10 +707,7 @@ footer {
   color: rgba(232,213,163,0.4);
 }
 
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
+.footer-links { display: flex; gap: 1.5rem; }
 
 .footer-links a {
   font-family: 'DM Mono', monospace;
@@ -744,21 +718,15 @@ footer {
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .footer-links a:hover { color: var(--sand); }
 
-/* ── SCROLL ANIMATIONS ── */
+/* ── REVEAL ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
+.reveal.visible { opacity: 1; transform: none; }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
@@ -767,10 +735,10 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .nav-links a { font-size: 0.62rem; }
   .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
-  .hero-soil-layers { display: none; }
-  .hero-divider { display: none; }
+  .hero-soil-layers, .hero-divider { display: none; }
   .hero-content { padding-right: 0; }
   section { padding: 4rem 1.5rem; }
   .stats-bar { padding: 2rem 1.5rem; }
@@ -790,11 +758,11 @@ footer {
 <!-- NAV -->
 
 <nav>
-  <div class="nav-logo">Aldi Airori · Soil & Env. Science</div>
+  <div class="nav-logo">Aldi J. Airori · Soil & Environmental Scientist</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -804,23 +772,24 @@ footer {
 
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Research Technologist · Land Grant University</div>
-    <h1>Grounded in<br><span class="hero-name-accent">Data,</span><br>Rooted in Soil.</h1>
+    <div class="hero-tag">Research Technologist I · UNL IANR · Lincoln, Nebraska</div>
+    <h1>Aldi J.<br><span class="hero-name-accent">Airori</span></h1>
     <p class="hero-subtitle">
-      Soil &amp; environmental scientist specializing in remote sensing, machine learning,
-      and spatial analysis — translating field data into insight for research and land management.
+      Environmental scientist bridging soil carbon research, remote sensing,
+      and open-access data — turning complex environmental datasets into insights
+      that drive climate and sustainability policy.
     </p>
     <div class="hero-pills">
-      <span class="pill pill-earth">Soil Science</span>
-      <span class="pill pill-data">Remote Sensing</span>
-      <span class="pill pill-moss">Python · ML</span>
-      <span class="pill pill-earth">GIS · GISP (Pursuing)</span>
-      <span class="pill pill-moss">Lab Operations</span>
-      <span class="pill pill-data">Scientific Writing</span>
+      <span class="pill pill-earth">Soil Carbon</span>
+      <span class="pill pill-data">Remote Sensing · GIS</span>
+      <span class="pill pill-moss">Python · R</span>
+      <span class="pill pill-earth">Agroecosystems</span>
+      <span class="pill pill-data">NASA · EO Certified</span>
+      <span class="pill pill-moss">Climate Policy</span>
     </div>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="mailto:aldijefferson07@gmail.com" class="btn-outline">Get in Touch</a>
     </div>
   </div>
 
@@ -839,20 +808,20 @@ footer {
 <div class="stats-bar">
   <div class="stats-grid">
     <div class="stat reveal">
+      <span class="stat-number">4+</span>
+      <span class="stat-label">Years Research Experience</span>
+    </div>
+    <div class="stat reveal reveal-delay-1">
+      <span class="stat-number">$76K+</span>
+      <span class="stat-label">Annual Budget Managed</span>
+    </div>
+    <div class="stat reveal reveal-delay-2">
       <span class="stat-number">20+</span>
       <span class="stat-label">Students &amp; Staff Trained</span>
     </div>
-    <div class="stat reveal reveal-delay-1">
-      <span class="stat-number">3</span>
-      <span class="stat-label">Instruments Maintained</span>
-    </div>
-    <div class="stat reveal reveal-delay-2">
-      <span class="stat-number">2</span>
-      <span class="stat-label">Major Research Projects</span>
-    </div>
     <div class="stat reveal reveal-delay-3">
       <span class="stat-number">3</span>
-      <span class="stat-label">Years Research Experience</span>
+      <span class="stat-label">Institutions Collaborated</span>
     </div>
   </div>
 </div>
@@ -862,78 +831,102 @@ footer {
 <section id="about">
   <div class="section-inner">
     <div class="section-label">About Me</div>
-    <h2>Scientist,<br><em>Collaborator,</em> Builder.</h2>
+    <h2>Analytical. Global.<br><em>Data-Driven.</em></h2>
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-          I am a <strong>Research Technologist</strong> in soil and environmental science at a land grant university, 
-          with an M.S. degree and three years of hands-on experience bridging field research, 
-          laboratory operations, and emerging computational methods.
+          I am <strong>Aldi J. Airori</strong>, an environmental scientist and Research Technologist I
+          at the <strong>University of Nebraska–Lincoln Institute of Agriculture and Natural Resources (IANR)</strong>,
+          with 4+ years of experience in environmental data analysis, energy research,
+          and sustainable resource management.
         </p>
         <p>
-          My work sits at the intersection of <strong>soil science and data science</strong> — I apply Python, 
-          remote sensing imagery, and machine learning to understand land conditions, drought patterns, 
-          and environmental change at scale. I contributed to a peer-reviewed paper on drought patterns 
-          and have supported two major multi-state research initiatives.
+          My work centers on <strong>digital soil carbon research</strong> and agroecosystem science —
+          combining field data collection, laboratory analysis, and spatial/statistical modeling
+          in Python, R, and ArcGIS to support emission-reduction strategies and sustainable land management.
         </p>
         <p>
-          Beyond the bench, I actively serve my university community as 
-          <strong>Co-Chair (incoming Chair) of the Staff Advisory Committee</strong>, 
-          have onboarded early-career researchers, managed lab budgets, and led outreach events. 
-          I believe rigorous science is built on strong teams, open workflows, and shared knowledge.
+          I hold an <strong>M.S. in Natural Resource Sciences</strong> and a B.S. in Environmental Science,
+          both from UNL. My international experience includes work as a
+          <strong>Remote Research Consultant for the World Resources Institute</strong>,
+          analyzing sustainable energy and agricultural policy across Southeast Asia
+          in coordination with NGOs and government stakeholders.
         </p>
         <p>
-          I'm currently pursuing <strong>GISP certification</strong>, OSHA 40-Hour HAZPOWER training, 
-          and growing a public GitHub portfolio to share tools and reproducible workflows with the 
-          broader research community.
+          I am committed to <strong>open-access science</strong> and reproducible workflows —
+          building public tools and datasets that help accelerate the transition toward
+          a low-carbon global economy.
         </p>
-      </div>
-      <div class="skills-panel reveal reveal-delay-2">
-        <h3>Technical Proficiency</h3>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Python (Data Science)</span>
-            <span class="skill-pct">72%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Remote Sensing / GIS</span>
-            <span class="skill-pct">68%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Machine Learning Modeling</span>
-            <span class="skill-pct">60%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Lab Instrumentation</span>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Scientific Writing</span>
-            <span class="skill-pct">70%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-top">
-            <span class="skill-name">Research Project Management</span>
-            <span class="skill-pct">85%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-        </div>
-      </div>
+
+```
+    <div class="about-contact">
+      <div class="contact-line"><span>✉</span> aairori2@unl.edu</div>
+      <div class="contact-line"><span>📞</span> (+1) 531-229-8298</div>
+      <div class="contact-line"><span>📍</span> Lincoln, Nebraska, USA 68503</div>
+      <div class="contact-line"><span>🌐</span> English · Bahasa Indonesia</div>
     </div>
+  </div>
+
+  <div class="skills-panel reveal reveal-delay-2">
+    <h3>Technical Proficiency</h3>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Python (Data Science)</span>
+        <span class="skill-pct">78%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">R (Statistical Analysis)</span>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Remote Sensing / GIS</span>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Soil Carbon Research</span>
+        <span class="skill-pct">90%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Data Analysis &amp; Visualization</span>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Policy &amp; Regulatory Analysis</span>
+        <span class="skill-pct">75%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-top">
+        <span class="skill-name">Scientific &amp; Technical Writing</span>
+        <span class="skill-pct">82%</span>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+    </div>
+
+    <div class="lang-badges">
+      <span class="lang-badge">🇺🇸 English — Fluent</span>
+      <span class="lang-badge">🇮🇩 Bahasa Indonesia — Fluent</span>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
@@ -946,87 +939,94 @@ footer {
     <div class="projects-grid">
 
 ```
-  <div class="project-card drought reveal">
+  <div class="project-card earth reveal">
     <div class="project-type">Research · Publication</div>
-    <h3>Drought Pattern Analysis</h3>
-    <p>Contributed to a research paper investigating regional drought patterns using satellite-derived indices
-       and soil moisture time-series data. Handled data processing pipelines and figure preparation.</p>
+    <h3>Digital Soil Carbon Studies</h3>
+    <p>Designed and led digital soil carbon research supporting sustainable land management
+       and emission-reduction strategies. Performed statistical and spatial analyses,
+       produced technical reports and visual summaries, and presented at national conferences.</p>
     <div class="project-tags">
-      <span class="tag">Remote Sensing</span>
-      <span class="tag">Python</span>
-      <span class="tag">NDVI</span>
-      <span class="tag">Drought Indices</span>
+      <span class="tag">Soil Carbon</span>
+      <span class="tag">R · Python</span>
+      <span class="tag">ArcGIS</span>
+      <span class="tag">Peer-Reviewed</span>
     </div>
     <a href="#" class="project-link">View Publication</a>
   </div>
 
-  <div class="project-card earth reveal reveal-delay-1">
-    <div class="project-type">Multi-State Research</div>
-    <h3>Barta &amp; Multi-State Projects</h3>
-    <p>Assisted in two concurrent major research initiatives spanning multiple states, supporting
-       field data collection, instrument calibration, sample processing, and data quality control.</p>
+  <div class="project-card geo reveal reveal-delay-1">
+    <div class="project-type">Agroecosystem Research · IANR</div>
+    <h3>Agroecosystem &amp; Energy Projects</h3>
+    <p>Lead environmental data and research operations for agroecosystem and energy projects
+       at IANR — managing $76K+ annual budgets, supervising staff, developing QA/QC protocols
+       and lab SOPs, and delivering reproducible open-access sustainability research.</p>
     <div class="project-tags">
-      <span class="tag">Soil Sampling</span>
+      <span class="tag">Agroecosystems</span>
       <span class="tag">QA/QC</span>
-      <span class="tag">Field Research</span>
-      <span class="tag">Lab Analysis</span>
-    </div>
-    <a href="#" class="project-link">Read More</a>
-  </div>
-
-  <div class="project-card geo reveal reveal-delay-2">
-    <div class="project-type">Tool Development · GitHub</div>
-    <h3>Remote Sensing Workflows</h3>
-    <p>Building a public GitHub repository of reproducible Python workflows for processing
-       satellite imagery, computing spectral indices, and classifying land cover types.</p>
-    <div class="project-tags">
-      <span class="tag">Python</span>
-      <span class="tag">Google Earth Engine</span>
-      <span class="tag">Rasterio</span>
-      <span class="tag">Open Source</span>
-    </div>
-    <a href="#" class="project-link">View on GitHub</a>
-  </div>
-
-  <div class="project-card ml reveal reveal-delay-1">
-    <div class="project-type">Machine Learning</div>
-    <h3>Soil Property Prediction</h3>
-    <p>Exploring ML models (Random Forest, XGBoost) to predict soil organic carbon and
-       texture class from hyperspectral and multispectral remote sensing covariates.</p>
-    <div class="project-tags">
-      <span class="tag">Scikit-learn</span>
-      <span class="tag">XGBoost</span>
-      <span class="tag">Spectral Data</span>
-      <span class="tag">Cross-Validation</span>
-    </div>
-    <a href="#" class="project-link">View Notebook</a>
-  </div>
-
-  <div class="project-card earth reveal reveal-delay-2">
-    <div class="project-type">Lab Operations</div>
-    <h3>Instrument Training &amp; Scheduling</h3>
-    <p>Designed and led training programs for 20+ students and staff on laboratory instruments.
-       Currently implementing an MS 365 online scheduling system to optimize access and reduce bottlenecks.</p>
-    <div class="project-tags">
-      <span class="tag">Lab Management</span>
-      <span class="tag">Microsoft 365</span>
-      <span class="tag">Training</span>
-      <span class="tag">SOP Development</span>
+      <span class="tag">Lab SOPs</span>
+      <span class="tag">Open-Access Data</span>
     </div>
     <a href="#" class="project-link">Learn More</a>
   </div>
 
-  <div class="project-card geo reveal reveal-delay-3">
-    <div class="project-type">Service · Leadership</div>
-    <h3>Staff Advisory Committee</h3>
-    <p>Elected Co-Chair of the university Staff Advisory Committee, transitioning to Chair.
-       Represent staff interests, facilitate communication between staff and administration.</p>
+  <div class="project-card policy reveal reveal-delay-2">
+    <div class="project-type">International Consulting · WRI</div>
+    <h3>Southeast Asia Energy &amp; Ag Policy</h3>
+    <p>Conducted research for the World Resources Institute on sustainable energy and
+       agricultural policy in Southeast Asia, aligning regional policies with global
+       climate goals through coordination with NGOs and government stakeholders.</p>
     <div class="project-tags">
-      <span class="tag">University Service</span>
-      <span class="tag">Leadership</span>
-      <span class="tag">Advocacy</span>
+      <span class="tag">Climate Policy</span>
+      <span class="tag">Southeast Asia</span>
+      <span class="tag">Stakeholder Engagement</span>
+      <span class="tag">WRI</span>
     </div>
     <a href="#" class="project-link">Read More</a>
+  </div>
+
+  <div class="project-card ml reveal">
+    <div class="project-type">Tool Development · GitHub</div>
+    <h3>Open-Source Environmental Workflows</h3>
+    <p>Building a public GitHub portfolio of reproducible Python and R workflows
+       for soil data analysis, remote sensing processing, and environmental
+       data visualization — designed for transparency and community reuse.</p>
+    <div class="project-tags">
+      <span class="tag">Python</span>
+      <span class="tag">R</span>
+      <span class="tag">Open Source</span>
+      <span class="tag">Reproducible Science</span>
+    </div>
+    <a href="#" class="project-link">View on GitHub</a>
+  </div>
+
+  <div class="project-card geo reveal reveal-delay-1">
+    <div class="project-type">Remote Sensing · Certified</div>
+    <h3>Spatial Analysis &amp; GIS Mapping</h3>
+    <p>NASA and EO College certified in remote sensing. Apply QGIS and ArcGIS
+       to perform spatial analyses of land cover, soil properties, and environmental
+       change — producing publication-quality maps and geospatial datasets.</p>
+    <div class="project-tags">
+      <span class="tag">QGIS</span>
+      <span class="tag">ArcGIS</span>
+      <span class="tag">NASA Certified</span>
+      <span class="tag">Land Cover</span>
+    </div>
+    <a href="#" class="project-link">View Maps</a>
+  </div>
+
+  <div class="project-card earth reveal reveal-delay-2">
+    <div class="project-type">Data Management · Operations</div>
+    <h3>Lab Operations &amp; Research Management</h3>
+    <p>Oversee instrument training for 20+ students and staff, manage operational
+       budgets, develop SOP documentation, coordinate Preventative Maintenance contracts,
+       and implement scheduling systems to optimize lab workflow.</p>
+    <div class="project-tags">
+      <span class="tag">Lab Management</span>
+      <span class="tag">Training</span>
+      <span class="tag">Budget $76K+</span>
+      <span class="tag">SOPs</span>
+    </div>
+    <a href="#" class="project-link">Learn More</a>
   </div>
 
 </div>
@@ -1035,46 +1035,66 @@ footer {
   </div>
 </section>
 
-<!-- RESEARCH TIMELINE -->
+<!-- EXPERIENCE TIMELINE -->
 
-<section id="research">
+<section id="experience">
   <div class="section-inner">
-    <div class="section-label">Trajectory</div>
-    <h2>Research &amp; <em>Professional Journey</em></h2>
+    <div class="section-label">Career Trajectory</div>
+    <h2>Experience &amp; <em>Education</em></h2>
     <div class="timeline">
 
 ```
   <div class="timeline-item reveal">
     <div class="timeline-dot"></div>
-    <div class="timeline-date">Fall 2025 – Present</div>
-    <h3>Staff Advisory Committee Chair</h3>
-    <p>Transitioning from Co-Chair to Chair; leading staff governance and representing colleagues
-       at institutional level while continuing core research responsibilities.</p>
-  </div>
-
-  <div class="timeline-item reveal">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2024 – Present</div>
-    <h3>Drought Research Paper — Co-Author</h3>
-    <p>Contributed data analysis, remote sensing processing, and writing to a peer-reviewed study
-       on drought patterns. Developed reusable Python data pipelines for the project.</p>
-  </div>
-
-  <div class="timeline-item reveal">
-    <div class="timeline-dot"></div>
     <div class="timeline-date">2023 – Present</div>
-    <h3>Research Technologist, Soil &amp; Environmental Science</h3>
-    <p>Supporting multi-state research projects (Barta, Multi-State), maintaining three instruments,
-       onboarding a postdoctoral researcher, training 20+ students, managing operational budget,
-       and securing the annual Preventative Maintenance contract.</p>
+    <h3>Research Technologist I</h3>
+    <div class="timeline-org">Institute of Agriculture and Natural Resources · UNL</div>
+    <p>Lead environmental data and research operations for agroecosystem and energy projects.
+       Managing $76K+ annual budgets, supervising staff, developing QA/QC protocols and lab SOPs,
+       analyzing large datasets, and delivering transparent, reproducible, open-access
+       sustainability and compliance research. Training 20+ students and staff on instruments
+       and lab procedures.</p>
   </div>
 
   <div class="timeline-item reveal">
     <div class="timeline-dot"></div>
-    <div class="timeline-date">M.S. Degree</div>
-    <h3>Graduate Training in Soil &amp; Environmental Science</h3>
-    <p>Graduate-level research in soil science, establishing foundational knowledge in field methods,
-       laboratory analysis, and environmental systems — the launchpad for an applied research career.</p>
+    <div class="timeline-date">2021 – 2022</div>
+    <h3>Graduate Research Assistant</h3>
+    <div class="timeline-org">School of Natural Resources · University of Nebraska–Lincoln</div>
+    <p>Designed and led digital soil carbon studies supporting sustainable land management
+       and emission-reduction strategies. Performed statistical and spatial analyses in R, Python,
+       and ArcGIS, produced technical reports and visual summaries, and presented findings
+       at national conferences while contributing to peer-reviewed publications.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">2021</div>
+    <h3>Remote Research Consultant</h3>
+    <div class="timeline-org">World Resources Institute</div>
+    <p>Conducted research on sustainable energy and agricultural policy in Southeast Asia.
+       Analyzed environmental data to align regional policies with global climate goals,
+       coordinating with NGOs and government stakeholders across the region.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">2021 – 2022</div>
+    <h3>M.S. in Natural Resource Sciences</h3>
+    <div class="timeline-org">University of Nebraska–Lincoln</div>
+    <p>Graduate research focused on soil science, environmental data analysis, and
+       sustainable land management. Developed expertise in R, Python, ArcGIS,
+       and scientific writing for peer-reviewed publication.</p>
+  </div>
+
+  <div class="timeline-item reveal">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date">2017 – 2020</div>
+    <h3>B.S. in Environmental Science</h3>
+    <div class="timeline-org">University of Nebraska–Lincoln</div>
+    <p>Foundation in environmental systems, field research methods, and quantitative analysis.
+       Developed cross-cultural collaboration skills and a globally-minded approach
+       to environmental problem-solving.</p>
   </div>
 
 </div>
@@ -1083,7 +1103,7 @@ footer {
   </div>
 </section>
 
-<!-- TOOLS & GITHUB -->
+<!-- TOOLS -->
 
 <section id="tools" class="tools-section">
   <div class="section-inner">
@@ -1098,45 +1118,46 @@ footer {
     <div class="tool-desc">NumPy, Pandas, Matplotlib, Scikit-learn, Rasterio, GeoPandas</div>
   </div>
   <div class="tool-item reveal reveal-delay-1">
+    <div class="tool-icon">📊</div>
+    <div class="tool-name">R · SigmaPlot</div>
+    <div class="tool-desc">Statistical modeling, ggplot2, spatial stats, publication figures</div>
+  </div>
+  <div class="tool-item reveal reveal-delay-2">
     <div class="tool-icon">🛰️</div>
     <div class="tool-name">Remote Sensing</div>
-    <div class="tool-desc">Google Earth Engine, ENVI, Sentinel, Landsat time-series</div>
-  </div>
-  <div class="tool-item reveal reveal-delay-2">
-    <div class="tool-icon">🗺️</div>
-    <div class="tool-name">GIS / Spatial</div>
-    <div class="tool-desc">ArcGIS, QGIS, PostGIS · Pursuing GISP Certification</div>
+    <div class="tool-desc">NASA &amp; EO College Certified · Sentinel, Landsat, multispectral analysis</div>
   </div>
   <div class="tool-item reveal reveal-delay-3">
-    <div class="tool-icon">🤖</div>
-    <div class="tool-name">Machine Learning</div>
-    <div class="tool-desc">Random Forest, XGBoost, cross-validation, feature importance</div>
+    <div class="tool-icon">🗺️</div>
+    <div class="tool-name">GIS · ArcGIS · QGIS</div>
+    <div class="tool-desc">Spatial analysis, land cover classification, geospatial datasets</div>
   </div>
   <div class="tool-item reveal">
-    <div class="tool-icon">🔬</div>
-    <div class="tool-name">Lab Instruments</div>
-    <div class="tool-desc">Spectrophotometers, soil analyzers, sample prep — SOP authoring</div>
+    <div class="tool-icon">🌱</div>
+    <div class="tool-name">Soil Science</div>
+    <div class="tool-desc">Soil carbon, agroecosystems, QA/QC, lab SOPs, sample processing</div>
   </div>
   <div class="tool-item reveal reveal-delay-1">
-    <div class="tool-icon">📊</div>
-    <div class="tool-name">Data Viz</div>
-    <div class="tool-desc">Matplotlib, Seaborn, Plotly, R ggplot2 for publication-ready figures</div>
+    <div class="tool-icon">🗂️</div>
+    <div class="tool-name">Database Management</div>
+    <div class="tool-desc">Large dataset management, spreadsheet systems, Microsoft Office Suite</div>
   </div>
   <div class="tool-item reveal reveal-delay-2">
-    <div class="tool-icon">🐙</div>
-    <div class="tool-name">GitHub</div>
-    <div class="tool-desc">Building open-source workflows for soil &amp; remote sensing analyses</div>
+    <div class="tool-icon">🎨</div>
+    <div class="tool-name">Adobe Suite</div>
+    <div class="tool-desc">Figures, posters, publication graphics, science communication design</div>
   </div>
   <div class="tool-item reveal reveal-delay-3">
-    <div class="tool-icon">☁️</div>
-    <div class="tool-name">Microsoft 365</div>
-    <div class="tool-desc">SharePoint scheduling, Teams, Power Automate for lab operations</div>
+    <div class="tool-icon">🐙</div>
+    <div class="tool-name">GitHub</div>
+    <div class="tool-desc">Open-source workflows, reproducible science, version control</div>
   </div>
 </div>
 
 <div class="github-cta reveal">
   <p>Find my open-source code and reproducible research notebooks at</p>
-  <div class="github-url">github.com/aairori2</div>
+  <!-- UPDATE THIS with your real GitHub username -->
+  <div class="github-url">github.com/your-github-username</div>
 </div>
 ```
 
@@ -1152,36 +1173,38 @@ footer {
     <div class="contact-grid">
       <div class="contact-text reveal">
         <p>
-          I'm open to research collaborations, consulting on soil &amp; remote sensing workflows,
-          speaking at outreach events, or simply connecting with other scientists and practitioners
-          working at the intersection of land, data, and environment.
+          I'm open to research collaborations, consulting on environmental data and GIS workflows,
+          speaking at outreach events, or connecting with scientists and practitioners
+          working at the intersection of land, climate, and data.
         </p>
         <p>
-          Whether you're a faculty member exploring a new project, an industry partner looking for
-          soil &amp; GIS expertise, or a student seeking guidance — feel free to reach out.
+          Whether you're a faculty member exploring a new project, an industry partner
+          looking for environmental data expertise, or an international researcher
+          interested in cross-institutional collaboration — reach out.
         </p>
         <div class="hero-pills" style="margin-top:0">
           <span class="pill pill-moss">Research Collaboration</span>
-          <span class="pill pill-data">GIS Consulting</span>
-          <span class="pill pill-earth">Outreach / Speaking</span>
+          <span class="pill pill-data">GIS &amp; Data Consulting</span>
+          <span class="pill pill-earth">Climate Policy</span>
+          <span class="pill pill-moss">Outreach / Speaking</span>
         </div>
       </div>
       <div class="contact-form reveal reveal-delay-2">
         <div class="form-field">
           <label>Your Name</label>
-          <input type="text" placeholder="Aldi Airori" />
+          <input type="text" placeholder="Dr. Jane Smith" />
         </div>
         <div class="form-field">
           <label>Email Address</label>
-          <input type="email" placeholder="aairori2@unl.edu" />
+          <input type="email" placeholder="jsmith@university.edu" />
         </div>
         <div class="form-field">
           <label>Message</label>
           <textarea rows="5" placeholder="Tell me about your project or question…"></textarea>
         </div>
-        <button class="btn-primary" style="align-self:flex-start" onclick="alert('Form submission would connect to your email backend.')">
+        <a href="mailto:aldijefferson07@gmail.com" class="btn-primary" style="align-self:flex-start; text-align:center;">
           Send Message
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -1191,19 +1214,19 @@ footer {
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Grounded in Data.</div>
+    <div class="footer-logo">Aldi J. Airori</div>
     <div class="footer-links">
+      <!-- UPDATE these href values with your real profile URLs -->
       <a href="#">GitHub</a>
       <a href="#">ORCID</a>
       <a href="#">LinkedIn</a>
       <a href="#">ResearchGate</a>
     </div>
-    <div class="footer-copy">© 2026 · Soil &amp; Environmental Science</div>
+    <div class="footer-copy">© 2026 · Aldi J. Airori · Soil & Environmental Scientist</div>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1215,16 +1238,12 @@ footer {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Smooth nav highlight
-  const sections = document.querySelectorAll('section[id], .stats-bar');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id || '';
+    document.querySelectorAll('section[id]').forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
     });
-    navLinks.forEach(a => {
+    document.querySelectorAll('.nav-links a').forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--moss)' : '';
     });
   });
