@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,328 +23,323 @@
       --white:           #fdfaf4;
     }
 
-```
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-body {
-  background: var(--cream);
-  color: var(--soil-dark);
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-weight: 300;
-  overflow-x: hidden;
-}
+    body {
+      background: var(--cream);
+      color: var(--soil-dark);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
 
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(107,76,42,0.05) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(107,76,42,0.04) 60px);
-  pointer-events: none;
-  z-index: 0;
-}
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(107,76,42,0.05) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(107,76,42,0.04) 60px);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* ══ NAV ══ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.1rem 3rem;
-  background: rgba(245,240,232,0.9);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(107,76,42,0.12);
-}
-.nav-logo {
-  font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
-  color: var(--soil-mid); letter-spacing: 0.15em; text-transform: uppercase;
-}
-.nav-links { display: flex; gap: 2.2rem; list-style: none; }
-.nav-links a {
-  font-family: 'DM Mono', monospace; font-size: 0.68rem;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--soil-mid); text-decoration: none; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--moss); }
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245,240,232,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(107,76,42,0.12);
+    }
+    .nav-logo {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 500;
+      color: var(--soil-mid); letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--soil-mid); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--moss); }
 
-/* ══ HERO ══ */
-.hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 8rem 3rem 5rem; overflow: hidden; z-index: 1;
-}
+    /* ══ HERO ══ */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 3rem 5rem; overflow: hidden; z-index: 1;
+    }
 
-/* Scene layers */
-.scene-sky {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom,
-    #0e1a26 0%, #1c3040 16%, #2e5060 30%, #4a7060 42%,
-    #7a9870 52%, #b0aa6a 60%, #c9a96e 68%,
-    #9a7040 80%, #5c3c18 90%, #2e1a08 100%);
-}
-.scene-stars {
-  position: absolute; top: 0; left: 0; right: 0; height: 40%;
-  background-image:
-    radial-gradient(1px 1px at 12% 10%, rgba(255,255,255,0.65) 0%, transparent 100%),
-    radial-gradient(1px 1px at 24%  6%, rgba(255,255,255,0.5)  0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 38% 18%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 54%  9%, rgba(255,255,255,0.45) 0%, transparent 100%),
-    radial-gradient(1px 1px at 67%  5%, rgba(255,255,255,0.6)  0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 78% 14%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 88%  8%, rgba(255,255,255,0.5)  0%, transparent 100%),
-    radial-gradient(1px 1px at  6% 22%, rgba(255,255,255,0.4)  0%, transparent 100%),
-    radial-gradient(1px 1px at 46%  4%, rgba(255,255,255,0.55) 0%, transparent 100%),
-    radial-gradient(1px 1px at 93% 20%, rgba(255,255,255,0.4)  0%, transparent 100%);
-}
-.scene-sun {
-  position: absolute; left: 28%; right: 0; top: 42%; height: 18%;
-  background: radial-gradient(ellipse 55% 50% at 35% 50%,
-    rgba(255,210,90,0.35) 0%, rgba(230,160,50,0.18) 45%, transparent 100%);
-}
-.scene-hills-far {
-  position: absolute; left: 0; right: 0; bottom: 38%; height: 12%;
-  background: linear-gradient(to bottom, #5c7a48 0%, #3e5830 100%);
-  clip-path: polygon(0 65%, 8% 35%, 18% 58%, 30% 22%, 42% 50%,
-    55% 18%, 67% 44%, 78% 20%, 90% 48%, 100% 30%, 100% 100%, 0 100%);
-  opacity: 0.75;
-}
-.scene-field {
-  position: absolute; left: 0; right: 0; bottom: 30%; height: 12%;
-  background: linear-gradient(to bottom, #6a9050 0%, #42642a 55%, #2e4820 100%);
-  clip-path: polygon(0 48%, 6% 22%, 15% 46%, 25% 18%, 35% 42%,
-    46% 12%, 57% 38%, 68% 16%, 80% 44%, 91% 24%, 100% 40%, 100% 100%, 0 100%);
-}
-.scene-soil {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 32%;
-  display: flex; flex-direction: column;
-}
-.scene-soil .sl { flex: 1; position: relative; }
-.scene-soil .sl:nth-child(1) { background: #7a5c30; }
-.scene-soil .sl:nth-child(2) { background: #60461e; }
-.scene-soil .sl:nth-child(3) { background: #4a3214; }
-.scene-soil .sl:nth-child(4) { background: #301c08; }
-.scene-soil .sl::after {
-  content: attr(data-h);
-  position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
-  font-family: 'DM Mono', monospace; font-size: 0.58rem;
-  letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3);
-}
-.scene-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg,
-    rgba(10,6,2,0.84) 0%, rgba(10,6,2,0.65) 38%,
-    rgba(10,6,2,0.22) 62%, transparent 100%);
-}
+    /* Scene layers */
+    .scene-sky {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        #0e1a26 0%, #1c3040 16%, #2e5060 30%, #4a7060 42%,
+        #7a9870 52%, #b0aa6a 60%, #c9a96e 68%,
+        #9a7040 80%, #5c3c18 90%, #2e1a08 100%);
+    }
+    .scene-stars {
+      position: absolute; top: 0; left: 0; right: 0; height: 40%;
+      background-image:
+        radial-gradient(1px 1px at 12% 10%, rgba(255,255,255,0.65) 0%, transparent 100%),
+        radial-gradient(1px 1px at 24%  6%, rgba(255,255,255,0.5)  0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 38% 18%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 54%  9%, rgba(255,255,255,0.45) 0%, transparent 100%),
+        radial-gradient(1px 1px at 67%  5%, rgba(255,255,255,0.6)  0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 78% 14%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88%  8%, rgba(255,255,255,0.5)  0%, transparent 100%),
+        radial-gradient(1px 1px at  6% 22%, rgba(255,255,255,0.4)  0%, transparent 100%),
+        radial-gradient(1px 1px at 46%  4%, rgba(255,255,255,0.55) 0%, transparent 100%),
+        radial-gradient(1px 1px at 93% 20%, rgba(255,255,255,0.4)  0%, transparent 100%);
+    }
+    .scene-sun {
+      position: absolute; left: 28%; right: 0; top: 42%; height: 18%;
+      background: radial-gradient(ellipse 55% 50% at 35% 50%,
+        rgba(255,210,90,0.35) 0%, rgba(230,160,50,0.18) 45%, transparent 100%);
+    }
+    .scene-hills-far {
+      position: absolute; left: 0; right: 0; bottom: 38%; height: 12%;
+      background: linear-gradient(to bottom, #5c7a48 0%, #3e5830 100%);
+      clip-path: polygon(0 65%, 8% 35%, 18% 58%, 30% 22%, 42% 50%,
+        55% 18%, 67% 44%, 78% 20%, 90% 48%, 100% 30%, 100% 100%, 0 100%);
+      opacity: 0.75;
+    }
+    .scene-field {
+      position: absolute; left: 0; right: 0; bottom: 30%; height: 12%;
+      background: linear-gradient(to bottom, #6a9050 0%, #42642a 55%, #2e4820 100%);
+      clip-path: polygon(0 48%, 6% 22%, 15% 46%, 25% 18%, 35% 42%,
+        46% 12%, 57% 38%, 68% 16%, 80% 44%, 91% 24%, 100% 40%, 100% 100%, 0 100%);
+    }
+    .scene-soil {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 32%;
+      display: flex; flex-direction: column;
+    }
+    .scene-soil .sl { flex: 1; position: relative; }
+    .scene-soil .sl:nth-child(1) { background: #7a5c30; }
+    .scene-soil .sl:nth-child(2) { background: #60461e; }
+    .scene-soil .sl:nth-child(3) { background: #4a3214; }
+    .scene-soil .sl:nth-child(4) { background: #301c08; }
+    .scene-soil .sl::after {
+      content: attr(data-h);
+      position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+      font-family: 'DM Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .scene-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg,
+        rgba(10,6,2,0.84) 0%, rgba(10,6,2,0.65) 38%,
+        rgba(10,6,2,0.22) 62%, transparent 100%);
+    }
 
-/* Hero content */
-.hero-content { position: relative; z-index: 10; max-width: 560px; }
+    /* Hero content */
+    .hero-content { position: relative; z-index: 10; max-width: 560px; }
 
-/* Profile photo */
-.hero-avatar { position: relative; width: 112px; height: 112px; margin-bottom: 2rem; }
-.hero-avatar::before {
-  content: ''; position: absolute; inset: -7px; border-radius: 50%;
-  background: conic-gradient(
-    var(--sand) 0deg, var(--moss) 100deg,
-    var(--sage-light) 180deg, transparent 230deg,
-    transparent 270deg, var(--sand) 360deg);
-  animation: ring-spin 14s linear infinite;
-}
-.hero-avatar::after {
-  content: ''; position: absolute; inset: -2px;
-  border-radius: 50%; background: #0a0602;
-}
-@keyframes ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.hero-avatar-initials {
-  position: absolute; inset: 0; z-index: 1; border-radius: 50%;
-  background: linear-gradient(135deg, var(--soil-brown) 0%, #2e4820 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif; font-style: italic;
-  font-size: 1.5rem; font-weight: 800; color: var(--straw); letter-spacing: 0.05em;
-}
-.hero-avatar img {
-  position: absolute; inset: 0; z-index: 2;
-  width: 100%; height: 100%; border-radius: 50%;
-  object-fit: cover; object-position: center top; display: block;
-}
+    /* Profile photo */
+    .hero-avatar { position: relative; width: 112px; height: 112px; margin-bottom: 2rem; }
+    .hero-avatar::before {
+      content: ''; position: absolute; inset: -7px; border-radius: 50%;
+      background: conic-gradient(
+        var(--sand) 0deg, var(--moss) 100deg,
+        var(--sage-light) 180deg, transparent 230deg,
+        transparent 270deg, var(--sand) 360deg);
+      animation: ring-spin 14s linear infinite;
+    }
+    .hero-avatar::after {
+      content: ''; position: absolute; inset: -2px;
+      border-radius: 50%; background: #0a0602;
+    }
+    @keyframes ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-avatar-initials {
+      position: absolute; inset: 0; z-index: 1; border-radius: 50%;
+      background: linear-gradient(135deg, var(--soil-brown) 0%, #2e4820 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.5rem; font-weight: 800; color: var(--straw); letter-spacing: 0.05em;
+    }
+    .hero-avatar img {
+      position: absolute; inset: 0; z-index: 2;
+      width: 100%; height: 100%; border-radius: 50%;
+      object-fit: cover; object-position: center top; display: block;
+    }
 
-/* Hero text */
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  font-family: 'DM Mono', monospace; font-size: 0.68rem;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--sage-light); margin-bottom: 1.2rem;
-}
-.hero-eyebrow::before { content: ''; display: block; width: 26px; height: 1px; background: var(--sage-light); }
+    /* Hero text */
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sage-light); margin-bottom: 1.2rem;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 26px; height: 1px; background: var(--sage-light); }
 
-.hero h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 800;
-  line-height: 1.0; color: var(--straw); margin-bottom: 0.2rem;
-}
-.hero h1 em { font-style: italic; color: var(--sage-light); }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 800;
+      line-height: 1.0; color: var(--straw); margin-bottom: 0.2rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage-light); }
 
-.hero-subtitle {
-  font-size: 1rem; font-weight: 300;
-  color: rgba(232,213,163,0.82); line-height: 1.75;
-  margin: 1.4rem 0 2.2rem; max-width: 460px;
-}
+    .hero-subtitle {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(232,213,163,0.82); line-height: 1.75;
+      margin: 1.4rem 0 2.2rem; max-width: 460px;
+    }
 
-.hero-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.5rem; }
-.pill {
-  font-family: 'DM Mono', monospace; font-size: 0.62rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.38rem 0.85rem; border-radius: 2px; border: 1px solid;
-}
-.pill-earth { border-color: rgba(201,169,110,0.55); color: var(--straw);           background: rgba(201,169,110,0.1); }
-.pill-moss  { border-color: rgba(184,212,168,0.5);  color: var(--sage-light);      background: rgba(122,158,111,0.1); }
-.pill-data  { border-color: rgba(91,163,196,0.45);  color: var(--data-blue-light); background: rgba(45,110,142,0.1); }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.5rem; }
+    .pill {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.38rem 0.85rem; border-radius: 2px; border: 1px solid;
+    }
+    .pill-earth { border-color: rgba(201,169,110,0.55); color: var(--straw);            background: rgba(201,169,110,0.1); }
+    .pill-moss  { border-color: rgba(184,212,168,0.5);  color: var(--sage-light);      background: rgba(122,158,111,0.1); }
+    .pill-data  { border-color: rgba(91,163,196,0.45);  color: var(--data-blue-light); background: rgba(45,110,142,0.1); }
 
-.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.btn-primary {
-  font-family: 'DM Mono', monospace; font-size: 0.72rem;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.9rem 2rem; background: var(--moss); color: var(--white);
-  border: none; cursor: pointer; text-decoration: none; display: inline-block;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-primary:hover { background: #2e4820; transform: translateY(-2px); }
+    .btn-primary {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.9rem 2rem; background: var(--moss); color: var(--white);
+      border: none; cursor: pointer; text-decoration: none; display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #2e4820; transform: translateY(-2px); }
 
-.btn-outline {
-  font-family: 'DM Mono', monospace; font-size: 0.72rem;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.9rem 2rem; background: transparent; color: var(--straw);
-  border: 1px solid rgba(201,169,110,0.5); cursor: pointer;
-  text-decoration: none; display: inline-block;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-}
-.btn-outline:hover { border-color: var(--sage-light); color: var(--sage-light); transform: translateY(-2px); }
+    .btn-outline {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.9rem 2rem; background: transparent; color: var(--straw);
+      border: 1px solid rgba(201,169,110,0.5); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--sage-light); color: var(--sage-light); transform: translateY(-2px); }
 
-/* ══ STATS ══ */
-.stats-bar { background: var(--soil-brown); padding: 3rem; position: relative; z-index: 1; }
-.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
-.stat { text-align: center; padding: 1.5rem; border-right: 1px solid rgba(201,169,110,0.2); }
-.stat:last-child { border-right: none; }
-.stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 800; color: var(--sand); display: block; line-height: 1; margin-bottom: 0.5rem; }
-.stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,169,110,0.6); }
+    /* ══ STATS ══ */
+    .stats-bar { background: var(--soil-brown); padding: 3rem; position: relative; z-index: 1; }
+    .stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+    .stat { text-align: center; padding: 1.5rem; border-right: 1px solid rgba(201,169,110,0.2); }
+    .stat:last-child { border-right: none; }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 800; color: var(--sand); display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,169,110,0.6); }
 
-/* ══ SHARED SECTION ══ */
-section { position: relative; z-index: 1; padding: 6rem 3rem; }
-.section-inner { max-width: 1100px; margin: 0 auto; }
-.section-label {
-  font-family: 'DM Mono', monospace; font-size: 0.65rem;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--sage); margin-bottom: 0.8rem;
-  display: flex; align-items: center; gap: 0.8rem;
-}
-.section-label::after { content: ''; display: block; width: 50px; height: 1px; background: var(--sage); }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; color: var(--soil-brown); line-height: 1.2; margin-bottom: 3rem; }
-h2 em { font-style: italic; }
+    /* ══ SHARED SECTION ══ */
+    section { position: relative; z-index: 1; padding: 6rem 3rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::after { content: ''; display: block; width: 50px; height: 1px; background: var(--sage); }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600; color: var(--soil-brown); line-height: 1.2; margin-bottom: 3rem; }
+    h2 em { font-style: italic; }
 
-/* ══ ABOUT ══ */
-.about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
-.about-text p { font-size: 1.05rem; line-height: 1.88; color: var(--soil-mid); margin-bottom: 1.2rem; }
-.about-text p strong { color: var(--soil-brown); font-weight: 600; }
-.about-contact { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(107,76,42,0.12); display: flex; flex-direction: column; gap: 0.55rem; }
-.contact-line { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--soil-mid); letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.7rem; }
+    /* ══ ABOUT ══ */
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { font-size: 1.05rem; line-height: 1.88; color: var(--soil-mid); margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--soil-brown); font-weight: 600; }
+    .about-contact { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid rgba(107,76,42,0.12); display: flex; flex-direction: column; gap: 0.55rem; }
+    .contact-line { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--soil-mid); letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.7rem; }
 
-.skills-panel { background: var(--white); border: 1px solid rgba(107,76,42,0.1); padding: 2rem; box-shadow: 4px 4px 0 rgba(107,76,42,0.06); }
-.skills-panel h3 { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
-.skill-item { margin-bottom: 1.2rem; }
-.skill-top { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
-.skill-name { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--soil-brown); }
-.skill-pct  { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sage); }
-.skill-bar  { height: 3px; background: rgba(107,76,42,0.1); overflow: hidden; }
-.skill-fill { height: 100%; background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
-.lang-badges { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(107,76,42,0.08); }
-.lang-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--sage); color: var(--moss); background: rgba(122,158,111,0.07); }
+    .skills-panel { background: var(--white); border: 1px solid rgba(107,76,42,0.1); padding: 2rem; box-shadow: 4px 4px 0 rgba(107,76,42,0.06); }
+    .skills-panel h3 { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
+    .skill-item { margin-bottom: 1.2rem; }
+    .skill-top { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+    .skill-name { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--soil-brown); }
+    .skill-pct  { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--sage); }
+    .skill-bar  { height: 3px; background: rgba(107,76,42,0.1); overflow: hidden; }
+    .skill-fill { height: 100%; background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
+    .lang-badges { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(107,76,42,0.08); }
+    .lang-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid var(--sage); color: var(--moss); background: rgba(122,158,111,0.07); }
 
-/* ══ PROJECTS ══ */
-.projects-section { background: var(--white); }
-.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.project-card { border: 1px solid rgba(107,76,42,0.1); background: var(--cream); padding: 2rem; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-.project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-.project-card.earth::before  { background: linear-gradient(90deg, var(--sand), var(--soil-mid)); }
-.project-card.geo::before    { background: linear-gradient(90deg, var(--data-blue), var(--data-blue-light)); }
-.project-card.ml::before     { background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
-.project-card.policy::before { background: linear-gradient(90deg, #8e6b2d, #c9a96e); }
-.project-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(59,42,20,0.12); }
-.project-type { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.9rem; }
-.project-card h3 { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 600; color: var(--soil-brown); margin-bottom: 0.75rem; line-height: 1.35; }
-.project-card p  { font-size: 0.88rem; line-height: 1.72; color: var(--soil-mid); margin-bottom: 1.4rem; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
-.tag { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; background: rgba(107,76,42,0.07); color: var(--soil-mid); }
-.project-link { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--moss); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
-.project-link:hover { gap: 0.8rem; }
-.project-link::after { content: '→'; }
+    /* ══ PROJECTS ══ */
+    .projects-section { background: var(--white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .project-card { border: 1px solid rgba(107,76,42,0.1); background: var(--cream); padding: 2rem; position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .project-card.earth::before  { background: linear-gradient(90deg, var(--sand), var(--soil-mid)); }
+    .project-card.geo::before    { background: linear-gradient(90deg, var(--data-blue), var(--data-blue-light)); }
+    .project-card.ml::before     { background: linear-gradient(90deg, var(--moss), var(--sage-light)); }
+    .project-card.policy::before { background: linear-gradient(90deg, #8e6b2d, #c9a96e); }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(59,42,20,0.12); }
+    .project-type { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.9rem; }
+    .project-card h3 { font-family: 'Playfair Display', serif; font-size: 1.18rem; font-weight: 600; color: var(--soil-brown); margin-bottom: 0.75rem; line-height: 1.35; }
+    .project-card p  { font-size: 0.88rem; line-height: 1.72; color: var(--soil-mid); margin-bottom: 1.4rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+    .tag { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; background: rgba(107,76,42,0.07); color: var(--soil-mid); }
+    .project-link { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--moss); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
+    .project-link:hover { gap: 0.8rem; }
+    .project-link::after { content: '→'; }
 
-/* ══ TIMELINE ══ */
-.timeline { position: relative; padding-left: 2rem; }
-.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--sand), rgba(201,169,110,0.1)); }
-.timeline-item { position: relative; padding-left: 2.5rem; padding-bottom: 3rem; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-dot { position: absolute; left: -2.5rem; top: 0.3rem; width: 10px; height: 10px; background: var(--sand); border: 2px solid var(--cream); border-radius: 50%; box-shadow: 0 0 0 2px var(--sand); }
-.timeline-date { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
-.timeline-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soil-brown); margin-bottom: 0.2rem; }
-.timeline-org { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
-.timeline-item p { font-size: 0.9rem; line-height: 1.75; color: var(--soil-mid); }
+    /* ══ TIMELINE ══ */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--sand), rgba(201,169,110,0.1)); }
+    .timeline-item { position: relative; padding-left: 2.5rem; padding-bottom: 3rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -2.5rem; top: 0.3rem; width: 10px; height: 10px; background: var(--sand); border: 2px solid var(--cream); border-radius: 50%; box-shadow: 0 0 0 2px var(--sand); }
+    .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+    .timeline-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soil-brown); margin-bottom: 0.2rem; }
+    .timeline-org { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.6rem; }
+    .timeline-item p { font-size: 0.9rem; line-height: 1.75; color: var(--soil-mid); }
 
-/* ══ TOOLS ══ */
-.tools-section { background: var(--soil-dark); }
-.tools-section .section-label { color: rgba(201,169,110,0.45); }
-.tools-section .section-label::after { background: rgba(201,169,110,0.25); }
-.tools-section h2 { color: var(--straw); }
-.tools-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.08); margin-bottom: 3rem; }
-.tool-item { padding: 1.8rem 1.5rem; background: var(--soil-dark); transition: background 0.2s; }
-.tool-item:hover { background: rgba(201,169,110,0.04); }
-.tool-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
-.tool-name { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sand); letter-spacing: 0.1em; margin-bottom: 0.35rem; }
-.tool-desc { font-size: 0.8rem; color: rgba(201,169,110,0.45); line-height: 1.5; }
-.github-cta { text-align: center; padding: 3rem; border: 1px solid rgba(201,169,110,0.15); background: rgba(201,169,110,0.03); }
-.github-cta p { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,169,110,0.5); margin-bottom: 1.2rem; }
-.github-url { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--sage-light); letter-spacing: 0.04em; }
+    /* ══ TOOLS ══ */
+    .tools-section { background: var(--soil-dark); }
+    .tools-section .section-label { color: rgba(201,169,110,0.45); }
+    .tools-section .section-label::after { background: rgba(201,169,110,0.25); }
+    .tools-section h2 { color: var(--straw); }
+    .tools-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(201,169,110,0.08); border: 1px solid rgba(201,169,110,0.08); margin-bottom: 3rem; }
+    .tool-item { padding: 1.8rem 1.5rem; background: var(--soil-dark); transition: background 0.2s; }
+    .tool-item:hover { background: rgba(201,169,110,0.04); }
+    .tool-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+    .tool-name { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--sand); letter-spacing: 0.1em; margin-bottom: 0.35rem; }
+    .tool-desc { font-size: 0.8rem; color: rgba(201,169,110,0.45); line-height: 1.5; }
+    .github-cta { text-align: center; padding: 3rem; border: 1px solid rgba(201,169,110,0.15); background: rgba(201,169,110,0.03); }
+    .github-cta p { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,169,110,0.5); margin-bottom: 1.2rem; }
+    .github-url { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--sage-light); letter-spacing: 0.04em; }
 
-/* ══ CONTACT ══ */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.contact-text p { font-size: 1rem; line-height: 1.8; color: var(--soil-mid); margin-bottom: 1.8rem; }
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-field label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); }
-.form-field input,
-.form-field textarea { font-family: 'Source Serif 4', serif; font-size: 0.9rem; color: var(--soil-brown); background: var(--white); border: 1px solid rgba(107,76,42,0.15); padding: 0.8rem 1rem; outline: none; transition: border-color 0.2s; resize: vertical; }
-.form-field input:focus, .form-field textarea:focus { border-color: var(--moss); }
+    /* ══ CONTACT ══ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .contact-text p { font-size: 1rem; line-height: 1.8; color: var(--soil-mid); margin-bottom: 1.8rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); }
+    .form-field input,
+    .form-field textarea { font-family: 'Source Serif 4', serif; font-size: 0.9rem; color: var(--soil-brown); background: var(--white); border: 1px solid rgba(107,76,42,0.15); padding: 0.8rem 1rem; outline: none; transition: border-color 0.2s; resize: vertical; }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--moss); }
 
-/* ══ FOOTER ══ */
-footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative; z-index: 1; }
-.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.footer-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--straw); }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,213,163,0.5); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--sand); }
-.footer-copy { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(232,213,163,0.35); letter-spacing: 0.1em; }
+    /* ══ FOOTER ══ */
+    footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative; z-index: 1; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--straw); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,213,163,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sand); }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(232,213,163,0.35); letter-spacing: 0.1em; }
 
-/* ══ RESPONSIVE ══ */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.2rem; }
-  .nav-links a { font-size: 0.6rem; }
-  .hero { padding: 7rem 1.5rem 4rem; }
-  .hero-avatar { width: 90px; height: 90px; }
-  section { padding: 4rem 1.5rem; }
-  .stats-bar { padding: 2rem 1.5rem; }
-  .stats-grid { grid-template-columns: repeat(2,1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .tools-grid { grid-template-columns: repeat(2,1fr); }
-  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
-}
-```
-
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 0.6rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-avatar { width: 90px; height: 90px; }
+      section { padding: 4rem 1.5rem; }
+      .stats-bar { padding: 2rem 1.5rem; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 
 <nav>
   <div class="nav-logo">Aldi Airori · Soil & Environmental Scientist</div>
@@ -358,16 +352,13 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
   </ul>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
-  <!-- CSS landscape — no image files needed -->
-  <div class="scene-sky"       aria-hidden="true"></div>
-  <div class="scene-stars"     aria-hidden="true"></div>
-  <div class="scene-sun"       aria-hidden="true"></div>
-  <div class="scene-hills-far" aria-hidden="true"></div>
-  <div class="scene-field"     aria-hidden="true"></div>
-  <div class="scene-soil"      aria-hidden="true">
+  <div class="scene-sky"        aria-hidden="true"></div>
+  <div class="scene-stars"      aria-hidden="true"></div>
+  <div class="scene-sun"        aria-hidden="true"></div>
+  <div class="scene-hills-far"  aria-hidden="true"></div>
+  <div class="scene-field"      aria-hidden="true"></div>
+  <div class="scene-soil"       aria-hidden="true">
     <div class="sl" data-h="A Horizon"></div>
     <div class="sl" data-h="B Horizon"></div>
     <div class="sl" data-h="C Horizon"></div>
@@ -376,42 +367,32 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
   <div class="scene-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <!--
-      PROFILE PHOTO
-      Upload a file named profile.jpg to your GitHub repo root.
-      Your "AJA" initials show until the photo loads.
-    -->
     <div class="hero-avatar">
       <div class="hero-avatar-initials">AJA</div>
       <img src="profile.jpg" alt="Aldi Airori" onerror="this.style.display='none'" />
     </div>
 
-```
-<div class="hero-eyebrow">Research Technologist I &nbsp;·&nbsp; UNL IANR &nbsp;·&nbsp; Lincoln, Nebraska</div>
-<h1>Aldi J.<br><em>Airori</em></h1>
-<p class="hero-subtitle">
-  Environmental scientist bridging soil carbon research, remote sensing,
-  and open-access data — turning complex environmental datasets into insights
-  that drive climate and sustainability policy.
-</p>
-<div class="hero-pills">
-  <span class="pill pill-earth">Soil Carbon</span>
-  <span class="pill pill-data">Remote Sensing · GIS</span>
-  <span class="pill pill-moss">Python · R</span>
-  <span class="pill pill-earth">Agroecosystems</span>
-  <span class="pill pill-data">NASA · EO Certified</span>
-  <span class="pill pill-moss">Climate Policy</span>
-</div>
-<div class="hero-ctas">
-  <a href="#projects" class="btn-primary">View My Work</a>
-  <a href="mailto:aairori2@unl.edu" class="btn-outline">Get in Touch</a>
-</div>
-```
-
+    <div class="hero-eyebrow">Research Technologist I &nbsp;·&nbsp; UNL IANR &nbsp;·&nbsp; Lincoln, Nebraska</div>
+    <h1>Aldi J.<br><em>Airori</em></h1>
+    <p class="hero-subtitle">
+      Environmental scientist bridging soil carbon research, remote sensing,
+      and open-access data — turning complex environmental datasets into insights
+      that drive climate and sustainability policy.
+    </p>
+    <div class="hero-pills">
+      <span class="pill pill-earth">Soil Carbon</span>
+      <span class="pill pill-data">Remote Sensing · GIS</span>
+      <span class="pill pill-moss">Python · R</span>
+      <span class="pill pill-earth">Agroecosystems</span>
+      <span class="pill pill-data">NASA · EO Certified</span>
+      <span class="pill pill-moss">Climate Policy</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="mailto:aldijefferson07@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
   </div>
 </section>
-
-<!-- STATS -->
 
 <div class="stats-bar">
   <div class="stats-grid">
@@ -422,113 +403,102 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
   </div>
 </div>
 
-<!-- ABOUT -->
-
 <section id="about">
   <div class="section-inner">
     <div class="section-label">About Me</div>
     <h2>Analytical. Global.<br><em>Data-Driven.</em></h2>
     <div class="about-grid">
+      <div class="about-text">
+        <p>I am <strong>Aldi Airori</strong>, an environmental scientist and Research Technologist I at the <strong>University of Nebraska–Lincoln Institute of Agriculture and Natural Resources (IANR)</strong>, with 4+ years of experience in environmental data analysis, energy research, and sustainable resource management.</p>
+        <p>My work centers on <strong>digital soil carbon research</strong> and agroecosystem science — combining field data collection, laboratory analysis, and spatial/statistical modeling in Python, R, and ArcGIS to support emission-reduction strategies and sustainable land management.</p>
+        <p>I hold an <strong>M.S. in Natural Resource Sciences</strong> and a B.S. in Environmental Science, both from UNL. My international experience includes work as a <strong>Remote Research Consultant for the World Resources Institute</strong>, analyzing sustainable energy and agricultural policy across Southeast Asia in coordination with NGOs and government stakeholders.</p>
+        <p>I am committed to <strong>open-access science</strong> and reproducible workflows — building public tools and datasets that help accelerate the transition toward a low-carbon global economy.</p>
+        <div class="about-contact">
+          <div class="contact-line">✉&nbsp; aldijefferson07@gmail.com</div>
+          <div class="contact-line">📞&nbsp; (+1) 531-229-8298</div>
+          <div class="contact-line">📍&nbsp; Lincoln, Nebraska, USA 68503</div>
+          <div class="contact-line">🌐&nbsp; English · Bahasa Indonesia</div>
+        </div>
+      </div>
 
-```
-  <div class="about-text">
-    <p>I am <strong>Aldi Airori</strong>, an environmental scientist and Research Technologist I at the <strong>University of Nebraska–Lincoln Institute of Agriculture and Natural Resources (IANR)</strong>, with 4+ years of experience in environmental data analysis, energy research, and sustainable resource management.</p>
-    <p>My work centers on <strong>digital soil carbon research</strong> and agroecosystem science — combining field data collection, laboratory analysis, and spatial/statistical modeling in Python, R, and ArcGIS to support emission-reduction strategies and sustainable land management.</p>
-    <p>I hold an <strong>M.S. in Natural Resource Sciences</strong> and a B.S. in Environmental Science, both from UNL. My international experience includes work as a <strong>Remote Research Consultant for the World Resources Institute</strong>, analyzing sustainable energy and agricultural policy across Southeast Asia in coordination with NGOs and government stakeholders.</p>
-    <p>I am committed to <strong>open-access science</strong> and reproducible workflows — building public tools and datasets that help accelerate the transition toward a low-carbon global economy.</p>
-    <div class="about-contact">
-      <div class="contact-line">✉&nbsp; aairori2@unl.edu</div>
-      <div class="contact-line">📞&nbsp; (+1) 531-229-8298</div>
-      <div class="contact-line">📍&nbsp; Lincoln, Nebraska, USA 68503</div>
-      <div class="contact-line">🌐&nbsp; English · Bahasa Indonesia</div>
+      <div class="skills-panel">
+        <h3>Technical Proficiency</h3>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Python (Data Science)</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">R — Statistical Analysis</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Remote Sensing / GIS</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Soil Carbon Research</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Machine Learning (GPR, RF, KNN)</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Data Analysis &amp; Visualization</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Web App Development (HTML/CSS/JS)</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Policy &amp; Regulatory Analysis</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Scientific &amp; Technical Writing</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        
+        <div class="lang-badges">
+          <span class="lang-badge">🇺🇸 English — Fluent</span>
+          <span class="lang-badge">🇮🇩 Bahasa Indonesia — Fluent</span>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="skills-panel">
-    <h3>Technical Proficiency</h3>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Python (Data Science)</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">R — Statistical Analysis</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Remote Sensing / GIS</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Soil Carbon Research</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Data Analysis &amp; Visualization</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Policy &amp; Regulatory Analysis</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-    <div class="skill-item"><div class="skill-top"><span class="skill-name">Scientific &amp; Technical Writing</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-    <div class="lang-badges">
-      <span class="lang-badge">🇺🇸 English — Fluent</span>
-      <span class="lang-badge">🇮🇩 Bahasa Indonesia — Fluent</span>
-    </div>
-  </div>
-
-</div>
-```
-
   </div>
 </section>
-
-<!-- PROJECTS -->
 
 <section id="projects" class="projects-section">
   <div class="section-inner">
     <div class="section-label">Featured Work</div>
     <h2>Projects &amp; <em>Contributions</em></h2>
     <div class="projects-grid">
+      
+      <div class="project-card earth">
+        <div class="project-type">Research · Publication</div>
+        <h3>Digital Soil Carbon Studies</h3>
+        <p>Designed and led digital soil carbon research supporting sustainable land management and emission-reduction strategies. Performed statistical and spatial analyses in R and Python, produced technical reports and visual summaries, and presented at national conferences.</p>
+        <div class="project-tags"><span class="tag">Soil Carbon</span><span class="tag">R · Python</span><span class="tag">ArcGIS</span><span class="tag">Peer-Reviewed</span></div>
+        <a href="#" class="project-link">View Publication</a>
+      </div>
 
-```
-  <div class="project-card earth">
-    <div class="project-type">Research · Publication</div>
-    <h3>Digital Soil Carbon Studies</h3>
-    <p>Designed and led digital soil carbon research supporting sustainable land management and emission-reduction strategies. Performed statistical and spatial analyses in R and Python, produced technical reports and visual summaries, and presented at national conferences.</p>
-    <div class="project-tags"><span class="tag">Soil Carbon</span><span class="tag">R · Python</span><span class="tag">ArcGIS</span><span class="tag">Peer-Reviewed</span></div>
-    <a href="#" class="project-link">View Publication</a>
-  </div>
+      <div class="project-card geo">
+        <div class="project-type">Machine Learning · Remote Sensing</div>
+        <h3>Soil Carbon MRV Pipelines</h3>
+        <p>Built multi-stage ML pipelines integrating Gaussian Process Regression, Random Forest, and KNN imputation with Google Earth Engine remote sensing workflows (Sentinel-1/2, Landsat) for a 5-year field experiment.</p>
+        <div class="project-tags"><span class="tag">Google Earth Engine</span><span class="tag">GPR / RF / KNN</span><span class="tag">GRIDMET</span></div>
+        <a href="#" class="project-link">Learn More</a>
+      </div>
 
-  <div class="project-card geo">
-    <div class="project-type">Agroecosystem Research · IANR</div>
-    <h3>Agroecosystem &amp; Energy Projects</h3>
-    <p>Lead environmental data and research operations at IANR — managing $76K+ annual budgets, supervising staff, developing QA/QC protocols and lab SOPs, and delivering reproducible open-access sustainability and compliance research.</p>
-    <div class="project-tags"><span class="tag">Agroecosystems</span><span class="tag">QA/QC</span><span class="tag">Lab SOPs</span><span class="tag">Open-Access Data</span></div>
-    <a href="#" class="project-link">Learn More</a>
-  </div>
+      <div class="project-card policy">
+        <div class="project-type">International Consulting · WRI</div>
+        <h3>Southeast Asia Energy &amp; Ag Policy</h3>
+        <p>Conducted research for the World Resources Institute on sustainable energy and agricultural policy in Southeast Asia, aligning regional policies with global climate goals through coordination with NGOs and government stakeholders.</p>
+        <div class="project-tags"><span class="tag">Climate Policy</span><span class="tag">Southeast Asia</span><span class="tag">Stakeholder Engagement</span><span class="tag">WRI</span></div>
+        <a href="#" class="project-link">Read More</a>
+      </div>
 
-  <div class="project-card policy">
-    <div class="project-type">International Consulting · WRI</div>
-    <h3>Southeast Asia Energy &amp; Ag Policy</h3>
-    <p>Conducted research for the World Resources Institute on sustainable energy and agricultural policy in Southeast Asia, aligning regional policies with global climate goals through coordination with NGOs and government stakeholders.</p>
-    <div class="project-tags"><span class="tag">Climate Policy</span><span class="tag">Southeast Asia</span><span class="tag">Stakeholder Engagement</span><span class="tag">WRI</span></div>
-    <a href="#" class="project-link">Read More</a>
-  </div>
+      <div class="project-card ml">
+        <div class="project-type">Web Application · Tool Development</div>
+        <h3>SOC Fractionation Lab Tracker</h3>
+        <p>Developed and deployed an open-source web application to manage laboratory fractionation workflows and sample data, streamlining lab operations and data integrity.</p>
+        <div class="project-tags"><span class="tag">HTML/CSS/JS</span><span class="tag">GitHub Pages</span><span class="tag">Open Source</span></div>
+        <a href="https://aairori2.github.io" class="project-link">View on GitHub</a>
+      </div>
 
-  <div class="project-card ml">
-    <div class="project-type">Tool Development · GitHub</div>
-    <h3>Open-Source Environmental Workflows</h3>
-    <p>Building a public GitHub portfolio of reproducible Python and R workflows for soil data analysis, remote sensing processing, and environmental data visualization — designed for transparency and community reuse.</p>
-    <div class="project-tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">Open Source</span><span class="tag">Reproducible Science</span></div>
-    <a href="#" class="project-link">View on GitHub</a>
-  </div>
+      <div class="project-card geo">
+        <div class="project-type">Remote Sensing · Certified</div>
+        <h3>Spatial Analysis &amp; GIS Mapping</h3>
+        <p>NASA and EO College certified in remote sensing. Apply QGIS and ArcGIS to perform spatial analyses of land cover, soil properties, and environmental change — producing publication-quality maps and geospatial datasets.</p>
+        <div class="project-tags"><span class="tag">QGIS</span><span class="tag">ArcGIS</span><span class="tag">NASA Certified</span><span class="tag">Land Cover</span></div>
+        <a href="#" class="project-link">View Maps</a>
+      </div>
 
-  <div class="project-card geo">
-    <div class="project-type">Remote Sensing · Certified</div>
-    <h3>Spatial Analysis &amp; GIS Mapping</h3>
-    <p>NASA and EO College certified in remote sensing. Apply QGIS and ArcGIS to perform spatial analyses of land cover, soil properties, and environmental change — producing publication-quality maps and geospatial datasets.</p>
-    <div class="project-tags"><span class="tag">QGIS</span><span class="tag">ArcGIS</span><span class="tag">NASA Certified</span><span class="tag">Land Cover</span></div>
-    <a href="#" class="project-link">View Maps</a>
-  </div>
+      <div class="project-card earth">
+        <div class="project-type">Data Management · Operations</div>
+        <h3>Lab Operations &amp; Research Management</h3>
+        <p>Oversee instrument training for 20+ students and staff, manage operational budgets, develop SOP documentation, coordinate Preventative Maintenance contracts, and implement scheduling systems to optimize lab workflow.</p>
+        <div class="project-tags"><span class="tag">Lab Management</span><span class="tag">Training</span><span class="tag">$76K+ Budget</span><span class="tag">SOPs</span></div>
+        <a href="#" class="project-link">Learn More</a>
+      </div>
 
-  <div class="project-card earth">
-    <div class="project-type">Data Management · Operations</div>
-    <h3>Lab Operations &amp; Research Management</h3>
-    <p>Oversee instrument training for 20+ students and staff, manage operational budgets, develop SOP documentation, coordinate Preventative Maintenance contracts, and implement scheduling systems to optimize lab workflow.</p>
-    <div class="project-tags"><span class="tag">Lab Management</span><span class="tag">Training</span><span class="tag">$76K+ Budget</span><span class="tag">SOPs</span></div>
-    <a href="#" class="project-link">Learn More</a>
-  </div>
-
-</div>
-```
-
+    </div>
   </div>
 </section>
-
-<!-- EXPERIENCE -->
 
 <section id="experience">
   <div class="section-inner">
@@ -536,54 +506,49 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
     <h2>Experience &amp; <em>Education</em></h2>
     <div class="timeline">
 
-```
-  <div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2023 – Present</div>
-    <h3>Research Technologist I</h3>
-    <div class="timeline-org">Institute of Agriculture and Natural Resources · UNL</div>
-    <p>Lead environmental data and research operations for agroecosystem and energy projects. Managing $76K+ annual budgets, supervising staff, developing QA/QC protocols and lab SOPs, analyzing large datasets, and delivering transparent, reproducible, open-access sustainability and compliance research. Training 20+ students and staff on instruments and laboratory procedures.</p>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023 – Present</div>
+        <h3>Research Technologist I</h3>
+        <div class="timeline-org">Institute of Agriculture and Natural Resources · UNL</div>
+        <p>Lead environmental data and research operations for agroecosystem projects. <strong>Built multi-stage ML pipelines</strong> (Gaussian Process Regression, Random Forest, KNN imputation) integrated with Google Earth Engine remote sensing workflows for soil carbon MRV research across a 5-year multi-treatment field experiment. <strong>Developed and deployed SOC Fractionation Lab Tracker</strong>, an open-source web application. Managing $76K+ budgets annually, supervising staff, and developing QA/QC protocols and lab SOPs for reproducible, open-access agroecosystem sustainability and compliance research.</p>
+      </div>
 
-  <div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2021 – 2022</div>
-    <h3>Graduate Research Assistant</h3>
-    <div class="timeline-org">School of Natural Resources · University of Nebraska–Lincoln</div>
-    <p>Designed and led digital soil carbon studies supporting sustainable land management and emission-reduction strategies. Performed statistical and spatial analyses in R, Python, and ArcGIS, produced technical reports and visual summaries, and presented findings at national conferences while contributing to peer-reviewed publications.</p>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2021 – 2022</div>
+        <h3>Graduate Research Assistant</h3>
+        <div class="timeline-org">School of Natural Resources · University of Nebraska–Lincoln</div>
+        <p>Designed and led digital soil carbon studies supporting sustainable land management and emission-reduction strategies. Performed statistical and spatial analyses in R, Python, and ArcGIS, produced technical reports and visual summaries, and presented findings at national conferences while contributing to peer-reviewed publications.</p>
+      </div>
 
-  <div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2021</div>
-    <h3>Remote Research Consultant</h3>
-    <div class="timeline-org">World Resources Institute</div>
-    <p>Conducted research on sustainable energy and agricultural policy in Southeast Asia. Analyzed environmental data to align regional policies with global climate goals, coordinating with NGOs and government stakeholders across the region.</p>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2021</div>
+        <h3>Remote Research Consultant</h3>
+        <div class="timeline-org">World Resources Institute</div>
+        <p>Conducted research on sustainable energy and agricultural policy in Southeast Asia. Analyzed environmental data to align regional policies with global climate goals, coordinating with NGOs and government stakeholders across the region.</p>
+      </div>
 
-  <div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2021 – 2022</div>
-    <h3>M.S. in Natural Resource Sciences</h3>
-    <div class="timeline-org">University of Nebraska–Lincoln</div>
-    <p>Graduate research focused on soil science, environmental data analysis, and sustainable land management. Developed expertise in R, Python, ArcGIS, and scientific writing for peer-reviewed publication.</p>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2021 – 2022</div>
+        <h3>M.S. in Natural Resource Sciences</h3>
+        <div class="timeline-org">University of Nebraska–Lincoln</div>
+        <p>Graduate research focused on soil science, environmental data analysis, and sustainable land management. Developed expertise in R, Python, ArcGIS, and scientific writing for peer-reviewed publication.</p>
+      </div>
 
-  <div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-date">2017 – 2020</div>
-    <h3>B.S. in Environmental Science</h3>
-    <div class="timeline-org">University of Nebraska–Lincoln</div>
-    <p>Foundation in environmental systems, field research methods, and quantitative analysis. Developed cross-cultural collaboration skills and a globally-minded approach to environmental problem-solving.</p>
-  </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2017 – 2020</div>
+        <h3>B.S. in Environmental Science</h3>
+        <div class="timeline-org">University of Nebraska–Lincoln</div>
+        <p>Foundation in environmental systems, field research methods, and quantitative analysis. Developed cross-cultural collaboration skills and a globally-minded approach to environmental problem-solving.</p>
+      </div>
 
-</div>
-```
-
+    </div>
   </div>
 </section>
-
-<!-- TOOLS -->
 
 <section id="tools" class="tools-section">
   <div class="section-inner">
@@ -601,13 +566,10 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
     </div>
     <div class="github-cta">
       <p>Find my open-source code and reproducible research notebooks at</p>
-      <!-- UPDATE with your real GitHub username -->
-      <div class="github-url">github.com/your-github-username</div>
+      <div class="github-url">aairori2.github.io</div>
     </div>
   </div>
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact">
   <div class="section-inner">
@@ -634,14 +596,11 @@ footer { background: var(--soil-brown); padding: 2.5rem 3rem; position: relative
   </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Aldi Airori</div>
     <div class="footer-links">
-      <!-- UPDATE each href with your real profile URLs -->
-      <a href="#">GitHub</a>
+      <a href="https://github.com/aairori2">GitHub</a>
       <a href="#">ORCID</a>
       <a href="#">LinkedIn</a>
       <a href="#">ResearchGate</a>
