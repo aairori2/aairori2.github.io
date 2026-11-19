@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aldi J. Airori, M.S. — Soil Data Scientist</title>
-  <meta name="description" content="Aldi J. Airori, M.S., is a Nebraska-based soil data scientist building soil carbon, greenhouse gas, and geospatial systems from field design to audit-ready reporting.">
+  <title>Aldi J. Airori, M.S. — Soil Data Scientist &amp; Geospatial Engineer</title>
+  <meta name="description" content="Aldi J. Airori, M.S., is a Nebraska-based soil data scientist and geospatial engineer building soil carbon, greenhouse gas, and geospatial systems from field design to audit-ready reporting.">
   <meta name="color-scheme" content="light dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
       --card: #f7f6f2;
       --accent: #6a4524;
       --accent-ink: #ffffff;
+      --m1: #4d3f33; --m2: #7c4a2a; --m3: #946b2f; --m4: #a8895b; --m-callout: #4d3f33; --callout-bg: #f1eee7;
       --serif: 'Instrument Serif', Georgia, serif;
       --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
@@ -30,6 +31,7 @@
         --card: #1b1915;
         --accent: #d4a86e;
         --accent-ink: #151310;
+        --m1: #8a7258; --m2: #c97b4a; --m3: #c08a3c; --m4: #c4b38a; --m-callout: #a8895b; --callout-bg: #1f1c17;
       }
     }
 
@@ -84,6 +86,8 @@
 
     /* Facts */
     .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 2rem 0; border-top: 1px solid var(--rule); }
+    .facts > div { border-left: 4px solid var(--mc); padding-left: 1rem; }
+    .facts .m1 { --mc: var(--m1); } .facts .m2 { --mc: var(--m2); } .facts .m3 { --mc: var(--m3); } .facts .m4 { --mc: var(--m4); }
     .facts div { display: grid; grid-template-rows: auto 1fr; }
     .facts dd { order: -1; }
     .facts dt { color: var(--muted); font-size: .92rem; line-height: 1.4; }
@@ -104,9 +108,14 @@
     .card .kind { color: var(--muted); font-size: .88rem; margin-bottom: .5rem; }
     .card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.2; margin-bottom: .7rem; }
     .card p { font-size: .97rem; line-height: 1.6; }
-    .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: 1rem 0 0; }
-    .tags li { font-size: .78rem; color: var(--muted); border: 1px solid var(--rule); border-radius: 3px; padding: .12rem .5rem; background: var(--bg); }
-    .card .links { margin-top: auto; padding-top: 1.1rem; display: flex; gap: 1.1rem; flex-wrap: wrap; font-weight: 500; font-size: .95rem; }
+    .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1rem; }
+    .tags li { font-size: .78rem; color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; padding: .12rem .5rem .12rem .45rem; background: var(--bg); display: inline-flex; align-items: center; gap: .4rem; }
+    .tags li::before { content: ""; width: 7px; height: 7px; border-radius: 1px; background: var(--m1); flex: none; }
+    .tags li:nth-child(3n+2)::before { background: var(--m2); } .tags li:nth-child(3n)::before { background: var(--m3); }
+    .card > p { margin-bottom: 1.1rem; }
+    .card .links { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--rule); display: flex; gap: .6rem; flex-wrap: wrap; font-weight: 500; font-size: .9rem; }
+    .card .links a { display: inline-block; padding: .38rem .8rem; border: 1px solid var(--ink); border-radius: 2px; color: var(--ink); text-decoration: none; line-height: 1.3; }
+    .card .links a:hover { background: var(--ink); color: var(--bg); }
     .card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding: 2rem; border-color: var(--accent); }
     .card.featured h3 { font-size: 2rem; }
     .card.featured > div:first-child { width: 100%; max-width: 62rem; justify-self: center; }
@@ -115,6 +124,15 @@
     .card.featured .note { color: var(--muted); font-size: .88rem; }
     .btn[hidden] { display: none; }
 
+
+
+    /* MRV callout */
+    .mrv { grid-column: 1 / -1; background: var(--callout-bg); border-left: 4px solid var(--m-callout); border-radius: 0 6px 6px 0; padding: 1.4rem 1.6rem 1.5rem; }
+    .mrv h3 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.2; margin-bottom: 1rem; }
+    .mrv ul { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1rem 2rem; }
+    .mrv li { font-size: .95rem; line-height: 1.55; }
+    .mrv li strong { display: block; font-weight: 600; margin-bottom: .15rem; }
+    @media (min-width: 1000px) { .mrv ul { grid-template-columns: repeat(3, 1fr); } }
 
     /* Framework in practice: a pipeline track with soil-colored stations */
     .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -199,6 +217,7 @@
       .soil .chip { height: 64px; }
       .job { grid-template-columns: 1fr; gap: .2rem; }
     }
+    @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
     @media (max-width: 600px) { .hero-top { flex-direction: column; align-items: flex-start; } .card-grid { grid-template-columns: 1fr; } .card.featured { padding: 1.5rem; } }
 
     /* Wide screens: use the full width instead of one centered column */
@@ -266,7 +285,7 @@
         <p class="role">Soil Research Technologist, University of Nebraska–Lincoln IANR<br>Lincoln, Nebraska</p>
       </div>
       <h1>Aldi J. Airori, M.S.</h1>
-      <p class="lede">Soil data scientist building soil carbon, greenhouse gas, and geospatial systems from field design to audit-ready reporting, with a focus on Midwest grazing, cropping, and grassland systems in Nebraska.</p>
+      <p class="lede">Soil data scientist and geospatial engineer translating multi-sensor remote sensing, Gaussian Process uncertainty quantification, and lab fractionation pipelines into audit-ready carbon and nutrient MRV systems.</p>
       <div class="actions">
         <a class="btn btn-solid" href="#projects">See projects</a>
         <a class="btn btn-line" href="mailto:aldijefferson07@gmail.com">Email Aldi</a>
@@ -290,17 +309,17 @@
       </div>
     </section>
 
-    <dl class="facts">
-      <div><dt>years of quantitative research, since 2018</dt><dd>8+</dd></div>
-      <div><dt>in annual budgets managed</dt><dd>$76K+</dd></div>
-      <div><dt>student researchers supervised a year</dt><dd>~50</dd></div>
-      <div><dt>seasons of field data modeled</dt><dd>5</dd></div>
+    <dl class="facts" aria-label="Leadership and operational scale">
+      <div class="m1"><dt>Years of quantitative research, since 2018</dt><dd>8+</dd></div>
+      <div class="m2"><dt>Annual research and lab budgets managed</dt><dd>$76K+</dd></div>
+      <div class="m3"><dt>Student researchers supervised a year</dt><dd>~50</dd></div>
+      <div class="m4"><dt>Seasons of soil sampling, lab chemistry, and remote sensing data synthesized (2019–2023)</dt><dd>5 seasons</dd></div>
     </dl>
 
     <section class="block" id="about" aria-labelledby="h-about">
       <h2 id="h-about">About</h2>
       <div class="content">
-        <p>I'm a Nebraska-based soil data scientist and Soil Research Technologist at the University of Nebraska–Lincoln Institute of Agriculture and Natural Resources (IANR). I have done quantitative soil research since 2018, building soil carbon, greenhouse gas, and geospatial systems from field design to audit-ready reporting.</p>
+        <p>I'm a Nebraska-based soil data scientist and geospatial engineer, working as a Soil Research Technologist at the University of Nebraska–Lincoln Institute of Agriculture and Natural Resources (IANR). I have done quantitative soil research since 2018, building soil carbon, greenhouse gas, and geospatial systems from field design to audit-ready reporting.</p>
         <p>On a multi-state, USDA-funded project, I run soil carbon fractionation from field sampling through lab analysis and reporting, measure greenhouse gases with field chambers, and write the metadata and QA/QC that support USDA and partner audits. I model soil nitrogen with Gaussian process and Random Forest methods and Google Earth Engine data, and I check results on held-out data before trusting them. My work focuses on Midwest grazing, cropping, and grassland systems, specifically in Nebraska.</p>
         <p>I hold an M.S. in Natural Resource Sciences and a B.S. in Environmental Science, both from UNL. I also worked as a Remote Research Consultant for the World Resources Institute, researching sustainable energy and agricultural policy in Southeast Asia.</p>
         <p>I believe soil health management is where agriculture is heading. I share code and aggregated data on GitHub (the raw project data are protected), and I use AI tools to speed up coding and troubleshooting, checking their output against held-out data and a documented changelog.</p>
@@ -311,16 +330,25 @@
       <h2 id="h-projects">Projects</h2>
       <div class="card-grid">
 
+        <aside class="mrv" aria-labelledby="mrv-title">
+          <h3 id="mrv-title">Translating Soil Science into Scalable MRV &amp; Impact Systems</h3>
+          <ul>
+            <li><strong>Targeted Sampling Decisions.</strong> Fusing Sentinel-1/2, Landsat, and GRIDMET covariates with Random Forest ranking, then using a coverage audit and a temporal holdout to decide which variables and seasons to sample next in a grazing and cover crop experiment.</li>
+            <li><strong>Uncertainty Quantification and Validation.</strong> Fitting Gaussian Process Regression and testing it on a held-out year, then reporting interval coverage together with interval width, so a short five-season record is not over-claimed.</li>
+            <li><strong>Chain of Custody and Audit Support.</strong> Following each soil sample by ID through all five carbon fractions and protocol steps in a Supabase (Postgres) tracker with an offline fallback, alongside the metadata and QA/QC I write for USDA and partner audits.</li>
+          </ul>
+        </aside>
+
         <article class="card featured">
           <div>
             <p class="kind">Most recent work · poster at CANVAS 2026 (ASA, CSSA, SSSA), Portland, Oregon</p>
             <h3>Soil nitrogen forecasting</h3>
+          <ul class="tags"><li>Data Fusion</li><li>Gaussian Process Regression</li><li>Random Forest</li><li>GEE / Python</li><li>Uncertainty Validation</li></ul>
             <p>Asked whether five seasons (2019–2023) of field data from a grazing and cover-crop experiment (nine one-acre plots, 1,363 soil samples) can support a nitrogen forecast. I screened nine soil measurements for completeness, linked the data to Google Earth Engine inputs (Sentinel-1/2, Landsat, GRIDMET, a drought index), and fit Gaussian process and Random Forest models with KNN imputation. A held-out 2023 season showed the prediction intervals reached 100% coverage only because they were wider than the data, so five seasons support description, not prediction. I distilled the project into a five-check framework for forecasting from a short record.</p>
-            <ul class="tags"><li>Google Earth Engine</li><li>Gaussian process regression</li><li>Random Forest</li><li>KNN imputation</li><li>Tableau</li></ul>
           <div class="actions feat-actions">
-              <a class="btn btn-solid" href="#dashboard">Explore the interactive dashboard</a>
+              <a class="btn btn-solid" href="#dashboard">Interactive dashboard</a>
               <a class="btn btn-line" href="Airori_CANVAS_2026.pdf" target="_blank" rel="noopener">Open the poster (PDF)</a>
-              <a class="btn btn-line" href="https://github.com/aairori2/Soil-Nitrogen-Data-Fusion-Framework" target="_blank" rel="noopener">Code and changelog on GitHub</a>
+              <a class="btn btn-line" href="https://github.com/aairori2/Soil-Nitrogen-Data-Fusion-Framework" target="_blank" rel="noopener">View GitHub repo</a>
             </div>
             <p class="note">Raw data are protected, so the repo holds methods and aggregated results.</p>
           </div>
@@ -422,31 +450,31 @@
         <article class="card">
           <p class="kind">USDA-funded, multi-state research</p>
           <h3>Soil carbon fractionation and GHG measurement</h3>
+          <ul class="tags"><li>Metadata Standardization</li><li>Audit Provenance</li><li>Multi-Site Field Ops</li></ul>
           <p>On farms and ranches under agreements with UNL research facilities, I help design the experiment, sample in the field, run all lab analyses, and produce the data and report. I measure greenhouse gases with field chambers, calculate CO₂, N₂O, and CH₄ myself, and write the metadata and QA/QC that support USDA and partner audits.</p>
-          <ul class="tags"><li>Soil carbon</li><li>GHG</li><li>QA/QC</li><li>Metadata</li></ul>
-          <div class="links"><a href="https://github.com/aairori2" target="_blank" rel="noopener">Code and documentation</a></div>
+          <div class="links"><a href="https://github.com/aairori2" target="_blank" rel="noopener">View profile &amp; code</a></div>
         </article>
 
         <article class="card">
           <p class="kind">Web app and data system, open source</p>
           <h3>SOC Fractionation Lab Tracker</h3>
+          <ul class="tags"><li>Chain of Custody</li><li>QA/QC</li><li>PostgreSQL / Supabase</li><li>Offline-First</li></ul>
           <p>I defined the sample workflow and data requirements, then built and deployed a web app that follows samples through all five soil carbon fractions by sample ID and protocol step, with a Supabase (Postgres) backend, SQL I wrote, an offline fallback, and data export.</p>
-          <ul class="tags"><li>Supabase · Postgres</li><li>SQL</li><li>Offline fallback</li></ul>
-          <div class="links"><a href="https://github.com/aairori2/soc-lab-tracker" target="_blank" rel="noopener">View on GitHub</a></div>
+          <div class="links"><a href="https://github.com/aairori2/soc-lab-tracker" target="_blank" rel="noopener">View GitHub repo</a></div>
         </article>
 
         <article class="card">
           <p class="kind">Nebraska Sandhills, summer 2026</p>
           <h3>Sandhills soil carbon pilot</h3>
-          <p>I interviewed, hired, and mentored two undergraduates with no research experience on a Nebraska Sandhills soil carbon fractionation project. Together we produced a research poster on soil carbon distribution, which is proof of concept for a Sandhills proposal to USDA.</p>
           <ul class="tags"><li>Mentoring</li><li>Soil carbon</li><li>Nebraska Sandhills</li></ul>
+          <p>I interviewed, hired, and mentored two undergraduates with no research experience on a Nebraska Sandhills soil carbon fractionation project. Together we produced a research poster on soil carbon distribution, which is proof of concept for a Sandhills proposal to USDA.</p>
         </article>
 
         <article class="card">
           <p class="kind">Publication and thesis</p>
           <h3>Soil bulk density and soil color research</h3>
-          <p>First-author paper on how sampling method affects soil bulk density (Communications in Soil Science and Plant Analysis, 2022), and a USDA NRCS–funded M.S. thesis that built pedotransfer functions predicting soil organic carbon from soil color using 1,576 Nebraska soil profiles.</p>
           <ul class="tags"><li>Peer-reviewed</li><li>Pedotransfer functions</li><li>NASIS</li></ul>
+          <p>First-author paper on how sampling method affects soil bulk density (Communications in Soil Science and Plant Analysis, 2022), and a USDA NRCS–funded M.S. thesis that built pedotransfer functions predicting soil organic carbon from soil color using 1,576 Nebraska soil profiles.</p>
           <div class="links">
             <a href="https://doi.org/10.1080/00103624.2021.1993887" target="_blank" rel="noopener">Read the paper</a>
             <a href="https://digitalcommons.unl.edu/appscitheses/2/" target="_blank" rel="noopener">Read the thesis</a>
@@ -456,16 +484,16 @@
         <article class="card">
           <p class="kind">NASA and EO College certified</p>
           <h3>Spatial analysis and GIS mapping</h3>
-          <p>I use QGIS and ArcGIS for spatial analysis of land cover, soil properties, and environmental change, and Google Earth Engine for Sentinel and Landsat covariates.</p>
           <ul class="tags"><li>QGIS</li><li>ArcGIS</li><li>Google Earth Engine</li></ul>
+          <p>I use QGIS and ArcGIS for spatial analysis of land cover, soil properties, and environmental change, and Google Earth Engine for Sentinel and Landsat covariates.</p>
           <div class="links"><a href="https://www.linkedin.com/in/aldi-airori-1bb73316a/details/certifications/" target="_blank" rel="noopener">View certifications</a></div>
         </article>
 
         <article class="card">
           <p class="kind">University of Nebraska–Lincoln</p>
           <h3>Lab leadership</h3>
-          <p>I supervise about 50 student researchers a year, manage $76K+ in annual budgets, write QA/QC protocols and SOPs, and coordinate preventative maintenance contracts. I also chair the Staff Advisory Committee for Agronomy and Horticulture.</p>
           <ul class="tags"><li>Supervision</li><li>Budgets</li><li>SOPs</li></ul>
+          <p>I supervise about 50 student researchers a year, manage $76K+ in annual budgets, write QA/QC protocols and SOPs, and coordinate preventative maintenance contracts. I also chair the Staff Advisory Committee for Agronomy and Horticulture.</p>
         </article>
 
       </div>
@@ -508,7 +536,7 @@
     <section class="block wide" id="dashboard" aria-labelledby="h-dash">
       <h2 id="h-dash">Interactive dashboard</h2>
       <div class="dash-intro">
-        <p>Explore the soil nitrogen data from this project by treatment and grazing. It is built in Tableau and published on Tableau Public.</p>
+        <p>Explore spatial cluster maps and temporal Gaussian Process forecast curves for soil ammonium (NH<sub>4</sub><sup>+</sup>) and nitrate (NO<sub>3</sub><sup>&minus;</sup>) across grazing and cover crop systems (2019–2023 baseline with projections beyond 2023). Click spatial clusters on the map to dynamically filter the corresponding temporal nitrogen trajectories.</p>
         <div class="links"><a href="https://public.tableau.com/app/profile/aldi.airori/viz/SoilNitrogenDataFusionFramework/Dashboard1" target="_blank" rel="noopener">Open it full size on Tableau Public</a></div>
       </div>
       <div class="viz-wrap">
@@ -642,7 +670,7 @@
 
   <footer>
     <span>© 2026 Aldi J. Airori, M.S.</span>
-    <span>Soil Data Scientist, Lincoln, Nebraska</span>
+    <span>Soil Data Scientist &amp; Geospatial Engineer, Lincoln, Nebraska</span>
   </footer>
 </div>
 
